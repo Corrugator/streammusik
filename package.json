@@ -16,7 +16,8 @@
 		"build": "rollup -c",
 		"watch": "rollup -c -w --watch.onEnd=\"streamdeck restart com.corrugator.streammusik\"",
 		"validate": "streamdeck validate com.corrugator.streammusik.sdPlugin",
-		"pack": "streamdeck pack com.corrugator.streammusik.sdPlugin --force"
+		"pack": "streamdeck pack com.corrugator.streammusik.sdPlugin --force",
+		"sync": "./scripts/sync-to-github.sh"
 	},
 	"devDependencies": {
 		"@elgato/cli": "^1.7.0",
