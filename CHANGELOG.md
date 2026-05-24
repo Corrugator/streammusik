@@ -3,6 +3,10 @@
 Versionsschema: `{major}.{minor}.{patch}.{build}` (Stream Deck Manifest).
 Jeder Eintrag = ein gepacktes `.streamDeckPlugin`-Bundle.
 
+## 0.3.0.3 — 2026-05-24
+
+- **`SupportURL` im Manifest** auf `https://github.com/Corrugator/streammusik/issues` gesetzt. Stream Deck Software zeigt jetzt einen direkten Link zu den GitHub Issues in den Plugin-Settings — User können Bugs ohne Email-Kontakt melden.
+
 ## 0.3.0.2 — 2026-05-24
 
 - **Volume-Cache-Race behoben.** Nach jeder User-Audio-Aktion (Drehen, Mute) blockt ein 500-ms-Grace-Window den Cache-Sync vom Poll-Tick. Verhindert kurze visuelle Glitches bei schnellem Drehen während ein Poll-Tick parallel läuft.

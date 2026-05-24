@@ -1,9 +1,10 @@
 {
 	"$schema": "https://schemas.elgato.com/streamdeck/plugins/manifest.json",
 	"Name": "StreamMusik",
-	"Version": "0.3.0.2",
+	"Version": "0.3.0.3",
 	"Author": "corrugator",
 	"URL": "https://github.com/Corrugator/streammusik",
+	"SupportURL": "https://github.com/Corrugator/streammusik/issues",
 	"Description": "Shows the currently playing Apple Music track on your Stream Deck key and controls volume with the Stream Deck+ dial.",
 	"Category": "StreamMusik",
 	"CategoryIcon": "imgs/plugin/category-icon",
