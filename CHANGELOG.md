@@ -5,7 +5,7 @@ Jeder Eintrag = ein gepacktes `.streamDeckPlugin`-Bundle.
 
 ## 0.3.0.3 — 2026-05-24
 
-- **`SupportURL` im Manifest** auf `https://github.com/Corrugator/streammusik/issues` gesetzt. Stream Deck Software zeigt jetzt einen direkten Link zu den GitHub Issues in den Plugin-Settings — User können Bugs ohne Email-Kontakt melden.
+- Re-Pack ohne Code-Änderung. (Versuchsweise wurde ein `SupportURL`-Feld ins Manifest eingetragen — das Stream-Deck-Schema erlaubt das aktuell nicht, also wurde es wieder entfernt. Support-Kanal bleibt über das `URL`-Feld → Repo → GitHub Issues Tab.)
 
 ## 0.3.0.2 — 2026-05-24
 
