@@ -268,38 +268,8 @@ Geprüft gegen [Plugin Guidelines](https://docs.elgato.com/guidelines/stream-dec
 | Action-Liste-Icon monochrom weiß auf transparent | ✅ (`action.svg`) |
 | Eingabesicherheit Parser (kein Injection via Track-Name) | ✅ (Unit-Separator + NaN-Guard ab v0.3.0.0) |
 
-### Pre-Submission-Audit (Stand v0.3.0.0)
-
-Strukturierter Audit gegen Marketplace-Guidelines + Code-Quality wurde durchgeführt. Ergebnis:
-
-**Blocker behoben:**
-- ✅ **B1** — `previews/`-Ordner inkl. Anleitung vorbereitet (Screenshots fehlen noch, siehe Checkliste).
-- ✅ **B2** — siehe Checkliste (echte URL setzen vor Submit).
-- ✅ **B3** — Trademark „Apple Music" in Description: bewusst stehen gelassen (Elgato hat eigenes Apple-Music-Plugin → Präzedenz).
-
-**Critical Code-Issues behoben (siehe [CHANGELOG.md](CHANGELOG.md) v0.3.0.0):**
-- ✅ **C1** — KV-Injection im AppleScript-Parser (Unit Separator).
-- ✅ **C2** — Marquee-Timer defensiv (kein Leak möglich).
-- ✅ **C3** — `showAlert()` bei jedem User-Aktion-Fehler.
-- ✅ **C4** — `isFinite()`-Guard für numerische Felder.
-
-**Bewusst nicht behoben** (siehe „Bekannte Grenzen" unten):
-- 🟡 **M3** — kein osascript-Retry bei Hangs (fällt auf cached state zurück).
-- 🟡 **M4** — `Category: "StreamMusik"` statt funktionaler Kategorie (kann ggf. im Review-Feedback nachjustiert werden).
-
-### Pre-Submission-Checkliste (Maker Console)
-
-Diese Punkte **müssen** vor dem Submit erledigt sein:
-
-- [x] ~~**`URL` im Manifest** auf echte Landing-Page / Repo setzen~~ — gesetzt auf `https://github.com/Corrugator/streammusik` ab v0.3.0.1.
-- [ ] **Mindestens 1 Preview-Screenshot** in [`com.corrugator.streammusik.sdPlugin/previews/`](com.corrugator.streammusik.sdPlugin/previews/) ablegen — siehe README dort für Format-Empfehlungen.
-- [ ] **Maker-Account** `corrugator` bei [maker.elgato.com](https://maker.elgato.com) registrieren.
-- [ ] **Live-Testlauf** mindestens einmal mit echtem SD+ + Apple Music: Cover wechselt mit Track ✅, Volume reagiert instant ✅, Mute toggelt ✅, Marquee bei langen Titeln ✅, `showAlert` bei Permission-Verweigerung ✅.
-- [ ] Frisches `npm run pack` direkt vor dem Upload.
 
 ## Bekannte Grenzen
-
-**Funktional:**
 
 - **Nur Apple Music.app**, kein Spotify / kein Browser-Music. Wer das will, muss auf MediaRemote oder eine eigene Quelle pro Player umstellen.
 - **Polling alle 2 s** — bei sehr kurzen Tracks (< 2 s) kann ein Wechsel verpasst werden. Realistisch irrelevant.
@@ -307,13 +277,6 @@ Diese Punkte **müssen** vor dem Submit erledigt sein:
 - **Volume-Cache kann bis zu 2 s veraltet sein**, wenn die Lautstärke extern (Keyboard, andere App) verändert wird. Beim nächsten Poll-Tick wird der Cache wieder sync. Realistisch unauffällig.
 - Erster Tick nach Track-Wechsel hat eine kleine Verzögerung, weil das Cover frisch nach `/tmp` geschrieben wird (~50 ms).
 - Kein Property Inspector — keine Settings nötig. Falls künftig Optionen kommen (z. B. „App-Volume statt System-Volume"), würde der hier ergänzt.
-
-**Bewusst nicht behoben — Future Work:**
-
-- **M3 — kein osascript-Retry bei Hangs.** Aktuell: Timeout nach 5 s, dann Exception → `showAlert` + fallback auf gecachten State. Ein persistenter osascript-Daemon (stdin-pipe statt `execFile` pro Call) würde Spawn-Overhead eliminieren UND Retries trivialisieren. Geschätzt 1–2 h Arbeit.
-- **M4 — `Category: "StreamMusik"`.** Guidelines empfehlen eine funktional beschreibende Kategorie wie `"Music"` oder `"Media Controls"`. Erst beim Marketplace-Review klärt sich, ob der Reviewer das anfordert.
-- **N1 — Marquee-Offset synchron incrementiert.** Bei extremer setFeedback-Latenz (> 300 ms) könnte die Animation springen. In der Praxis nie beobachtet.
-- **N3 — Path-Validation im `loadArtworkDataUrl`.** Aktuell vertrauen wir dem AppleScript-Output für den `/tmp/streammusik-artwork-…`-Pfad. Defensive Validation (`path.startsWith(…)`) wäre marginale Härtung gegen einen Bug in AppleScript, kein realer Angriffsvektor.
 
 ---
 
