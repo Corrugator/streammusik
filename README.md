@@ -20,7 +20,7 @@ Bei Fehlern (z. B. fehlender Automation-Permission) blendet die Taste das Stream
 ## Voraussetzungen
 
 - **macOS 11+**
-- **Stream Deck Software 6.5+**
+- **Stream Deck Software 6.9+**
 - **Apple Music App** (auf macOS vorinstalliert)
 - Beim ersten Aufruf bittet macOS um **Automation-Permission** für Music
   (*Systemeinstellungen → Datenschutz & Sicherheit → Automation → Stream Deck → Music ✅*)

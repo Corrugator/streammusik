@@ -4,3 +4,4 @@ com.corrugator.streammusik.sdPlugin/logs/
 *.streamDeckPlugin
 .DS_Store
 *.log
+.submission-texts.md

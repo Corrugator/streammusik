@@ -3,6 +3,16 @@
 Versionsschema: `{major}.{minor}.{patch}.{build}` (Stream Deck Manifest).
 Jeder Eintrag = ein gepacktes `.streamDeckPlugin`-Bundle.
 
+## 0.3.0.4 — 2026-05-24
+
+**Marketplace-Anforderungen erfüllt** — der Maker Console hat beim Upload-Check drei Felder rot markiert, alle drei korrigiert:
+
+- `SDKVersion: 2` → `3` (Marketplace verlangt mindestens v3)
+- `Software.MinimumVersion: "6.5"` → `"6.9"` (Marketplace verlangt mindestens 6.9)
+- Damit ist **DRM Protection** automatisch aktiviert (kein separates Manifest-Feld; ergibt sich aus SDKVersion 3 + Software 6.9)
+
+Keine Code-Änderungen — `@elgato/streamdeck@2.1.0` läuft sowohl mit Manifest-SDKVersion 2 als auch 3.
+
 ## 0.3.0.3 — 2026-05-24
 
 - Re-Pack ohne Code-Änderung. (Versuchsweise wurde ein `SupportURL`-Feld ins Manifest eingetragen — das Stream-Deck-Schema erlaubt das aktuell nicht, also wurde es wieder entfernt. Support-Kanal bleibt über das `URL`-Feld → Repo → GitHub Issues Tab.)
