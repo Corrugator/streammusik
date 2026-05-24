@@ -1,0 +1,57 @@
+{
+	"$schema": "https://schemas.elgato.com/streamdeck/plugins/manifest.json",
+	"Name": "StreamMusik",
+	"Version": "0.3.0.1",
+	"Author": "corrugator",
+	"URL": "https://github.com/Corrugator/streammusik",
+	"Description": "Shows the currently playing Apple Music track on your Stream Deck key and controls volume with the Stream Deck+ dial.",
+	"Category": "StreamMusik",
+	"CategoryIcon": "imgs/plugin/category-icon",
+	"Icon": "imgs/plugin/marketplace",
+	"CodePath": "bin/plugin.js",
+	"SDKVersion": 2,
+	"Software": {
+		"MinimumVersion": "6.5"
+	},
+	"OS": [
+		{
+			"Platform": "mac",
+			"MinimumVersion": "11"
+		}
+	],
+	"Nodejs": {
+		"Version": "20",
+		"Debug": "enabled"
+	},
+	"UUID": "com.corrugator.streammusik",
+	"Actions": [
+		{
+			"Name": "Now Playing",
+			"UUID": "com.corrugator.streammusik.now-playing",
+			"Icon": "imgs/actions/now-playing/action",
+			"Tooltip": "Show the current Apple Music track. Tap to play/pause. On Stream Deck+: turn dial to change volume, press to mute.",
+			"Controllers": [
+				"Keypad",
+				"Encoder"
+			],
+			"DisableAutomaticStates": true,
+			"States": [
+				{
+					"Image": "imgs/actions/now-playing/key",
+					"TitleAlignment": "bottom",
+					"FontSize": 8,
+					"ShowTitle": false
+				}
+			],
+			"Encoder": {
+				"layout": "layouts/now-playing.json",
+				"Icon": "imgs/actions/now-playing/action",
+				"TriggerDescription": {
+					"Push": "Mute",
+					"Rotate": "Volume",
+					"Touch": "Play / Pause"
+				}
+			}
+		}
+	]
+}

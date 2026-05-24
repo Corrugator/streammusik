@@ -1,0 +1,6 @@
+node_modules/
+com.corrugator.streammusik.sdPlugin/bin/
+com.corrugator.streammusik.sdPlugin/logs/
+*.streamDeckPlugin
+.DS_Store
+*.log
