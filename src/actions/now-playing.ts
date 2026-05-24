@@ -26,6 +26,11 @@ const POLL_MS = 2000;
 const VOLUME_STEP = 2;
 /** How long to coalesce rapid dial rotations before firing one osascript call. */
 const FLUSH_DEBOUNCE_MS = 30;
+/**
+ * Window after a user audio action (rotate/mute) during which the poll-tick must
+ * NOT overwrite the cache. Covers debounce + osascript round-trip + safety buffer.
+ */
+const USER_ACTION_GRACE_MS = 500;
 
 /**
  * Char limits the layout's text slots can display at the current font sizes.
@@ -55,6 +60,8 @@ export class NowPlaying extends SingletonAction {
 	#cachedMuted?: boolean;
 	#flushTimer?: NodeJS.Timeout;
 	#pendingUnmute = false;
+	/** Wall-clock timestamp of last user audio action — guards cache against stale poll reads. */
+	#lastUserActionAt = 0;
 
 	// Marquee state — text scrolling when track/artist exceed the layout's char limit.
 	#marqueeTimer?: NodeJS.Timeout;
@@ -98,6 +105,7 @@ export class NowPlaying extends SingletonAction {
 	}
 
 	override async onDialDown(ev: DialDownEvent): Promise<void> {
+		this.#lastUserActionAt = Date.now();
 		const next = !(this.#cachedMuted ?? false);
 		this.#cachedMuted = next;
 		// UI immediately, OS in background.
@@ -114,6 +122,7 @@ export class NowPlaying extends SingletonAction {
 	}
 
 	override async onDialRotate(ev: DialRotateEvent): Promise<void> {
+		this.#lastUserActionAt = Date.now();
 		const current = this.#cachedVolume ?? 0;
 		const wasMuted = this.#cachedMuted ?? false;
 		const next = Math.max(0, Math.min(100, current + ev.payload.ticks * VOLUME_STEP));
@@ -161,9 +170,12 @@ export class NowPlaying extends SingletonAction {
 	async #tick(): Promise<void> {
 		const [track, audio] = await Promise.all([getTrackInfo(), safeGetAudio()]);
 
-		// Only sync cache from system when no rotation is in flight — otherwise we'd
-		// briefly overwrite the user's target with a stale read.
-		if (!this.#flushTimer) {
+		// Only sync cache from system when no user audio action is in flight or recent.
+		// The flush timer covers the active debounce window; the grace timestamp covers
+		// the osascript round-trip that follows the flush (poll-tick could otherwise
+		// overwrite the just-set value with a stale system read).
+		const rotationRecent = Date.now() - this.#lastUserActionAt < USER_ACTION_GRACE_MS;
+		if (!this.#flushTimer && !rotationRecent) {
 			this.#cachedVolume = audio.volume;
 			this.#cachedMuted = audio.muted;
 		}

@@ -1,7 +1,11 @@
 import { execFile } from "node:child_process";
+import { readdir, stat, unlink } from "node:fs/promises";
+import { join } from "node:path";
 import { promisify } from "node:util";
 
 const run = promisify(execFile);
+const ARTWORK_DIR = "/tmp";
+const ARTWORK_PREFIX = "streammusik-artwork-";
 
 export type PlayerState = "playing" | "paused" | "stopped" | "not_running";
 
@@ -167,4 +171,30 @@ export async function setSystemMuted(muted: boolean): Promise<void> {
 
 export async function playPause(): Promise<void> {
 	await osascript('tell application "Music" to playpause');
+}
+
+/**
+ * Removes cached artwork files in /tmp older than `maxAgeDays`. Best-effort —
+ * silently ignores files we can't stat or delete (permissions, race with
+ * another process, etc.). Call once at plugin startup.
+ */
+export async function cleanupOldArtwork(maxAgeDays = 30): Promise<void> {
+	const maxAgeMs = maxAgeDays * 24 * 60 * 60 * 1000;
+	const now = Date.now();
+	let entries: string[];
+	try {
+		entries = await readdir(ARTWORK_DIR);
+	} catch {
+		return;
+	}
+	for (const name of entries) {
+		if (!name.startsWith(ARTWORK_PREFIX)) continue;
+		const path = join(ARTWORK_DIR, name);
+		try {
+			const s = await stat(path);
+			if (now - s.mtimeMs > maxAgeMs) await unlink(path);
+		} catch {
+			// ignore — file went away, no permission, etc.
+		}
+	}
 }
