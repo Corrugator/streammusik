@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bgE" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1A1D24"/>
+      <stop offset="100%" stop-color="#08090C"/>
+    </linearGradient>
+    <radialGradient id="metalRedE" cx="0.4" cy="0.35" r="0.7">
+      <stop offset="0%" stop-color="#FF6B5C"/>
+      <stop offset="45%" stop-color="#E5283F"/>
+      <stop offset="100%" stop-color="#7A0816"/>
+    </radialGradient>
+  </defs>
+  <rect width="512" height="512" rx="96" fill="url(#bgE)"/>
+  <!-- Sound beacon: filled center + concentric arcs -->
+  <g stroke-linecap="round">
+    <!-- Outermost arc (faint) -->
+    <path d="M 110 256 A 146 146 0 0 1 402 256"
+          fill="none" stroke="url(#metalRedE)" stroke-width="14" opacity="0.35"/>
+    <!-- Middle arc -->
+    <path d="M 156 256 A 100 100 0 0 1 356 256"
+          fill="none" stroke="url(#metalRedE)" stroke-width="18" opacity="0.7"/>
+    <!-- Inner arc -->
+    <path d="M 200 256 A 56 56 0 0 1 312 256"
+          fill="none" stroke="url(#metalRedE)" stroke-width="22"/>
+    <!-- Center filled circle -->
+    <circle cx="256" cy="256" r="24" fill="url(#metalRedE)"/>
+  </g>
+</svg>

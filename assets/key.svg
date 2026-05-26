@@ -1,7 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 144 144">
+  <defs>
+    <linearGradient id="metalRedKey" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FF4D52"/>
+      <stop offset="45%" stop-color="#D62035"/>
+      <stop offset="100%" stop-color="#7A0816"/>
+    </linearGradient>
+  </defs>
   <rect width="144" height="144" rx="20" fill="#101218"/>
-  <g fill="none" stroke="#2DD4BF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M 28 60 Q 49 31, 72 60 T 116 60"/>
-    <path d="M 28 84 Q 49 113, 72 84 T 116 84"/>
-  </g>
+  <polygon points="72,25 116,50 116,94 72,119 28,94 28,50"
+           fill="none" stroke="url(#metalRedKey)" stroke-width="7" stroke-linejoin="round"/>
+  <polyline points="40,72 57,72 65,56 72,90 80,52 88,90 95,72 104,72"
+            fill="none" stroke="url(#metalRedKey)" stroke-width="6"
+            stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

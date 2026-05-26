@@ -3,6 +3,13 @@
 Versionsschema: `{major}.{minor}.{patch}.{build}` (Stream Deck Manifest).
 Jeder Eintrag = ein gepacktes `.streamDeckPlugin`-Bundle.
 
+## 1.0.0.2 — 2026-05-26 — Brand refresh (metallic red, hexagon-pulse)
+
+- **New logo:** geometric hexagon outline with an EKG-style pulse line inside. More tech-modern, clearly "live audio" symbolism.
+- **New color palette:** metallic red gradient (`#FF4D52 → #D62035 → #7A0816`) replaces the mint-teal accent across all assets — icons, thumbnail wordmark, and the encoder volume bar.
+- Backgrounds stay dark charcoal for contrast.
+- No functional changes — assets + 1 color swap in the encoder layout.
+
 ## 1.0.0.1 — 2026-05-26 — Logo refresh
 
 - **New logo:** stylised audio waveform (two mirrored sine curves) replaces the previous single-note design. More abstract, clearer audio-association, no resemblance to other music apps.
