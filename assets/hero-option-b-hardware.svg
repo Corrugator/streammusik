@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 960">
+  <defs>
+    <linearGradient id="bgB" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1A1D24"/>
+      <stop offset="100%" stop-color="#06080B"/>
+    </linearGradient>
+    <linearGradient id="metalRedB" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FF4D52"/>
+      <stop offset="45%" stop-color="#D62035"/>
+      <stop offset="100%" stop-color="#7A0816"/>
+    </linearGradient>
+    <linearGradient id="bodyGB" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#22262E"/>
+      <stop offset="100%" stop-color="#0E1014"/>
+    </linearGradient>
+    <linearGradient id="coverB" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FF7A45"/>
+      <stop offset="50%" stop-color="#C5183C"/>
+      <stop offset="100%" stop-color="#3B1140"/>
+    </linearGradient>
+    <linearGradient id="dimB" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#000000" stop-opacity="0.85"/>
+      <stop offset="40%" stop-color="#000000" stop-opacity="0.30"/>
+      <stop offset="60%" stop-color="#000000" stop-opacity="0.30"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.85"/>
+    </linearGradient>
+    <radialGradient id="floorGlowB" cx="0.5" cy="1" r="0.6">
+      <stop offset="0%" stop-color="#FF4D52" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#FF4D52" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1920" height="960" fill="url(#bgB)"/>
+
+  <!-- Soft floor glow under hardware -->
+  <ellipse cx="960" cy="800" rx="700" ry="80" fill="url(#floorGlowB)"/>
+
+  <!-- Top: Wordmark + Tagline -->
+  <text x="960" y="130" text-anchor="middle"
+        font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif"
+        font-size="88" font-weight="800" fill="#FFFFFF" letter-spacing="-2">Stream Deck <tspan fill="url(#metalRedB)">Musik Viewer</tspan></text>
+  <text x="960" y="190" text-anchor="middle"
+        font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif"
+        font-size="32" font-weight="400" fill="#9CA3AF">Apple Music — live on your Stream Deck + encoder.</text>
+
+  <!-- LARGE centered SD+ Hardware Mockup with Plugin clearly visible -->
+  <g transform="translate(380, 260)">
+    <!-- Body, large 1160x520 -->
+    <rect x="0" y="0" width="1160" height="520" rx="56" fill="url(#bodyGB)" stroke="#2A2F38" stroke-width="3"/>
+
+    <!-- LCD Keys Grid 4x2 (each 120x120, gap 18) -->
+    <g transform="translate(264, 50)">
+      <!-- Row 1 -->
+      <rect x="0"   y="0" width="120" height="120" rx="14" fill="#15171D"/>
+      <rect x="138" y="0" width="120" height="120" rx="14" fill="#15171D"/>
+      <rect x="276" y="0" width="120" height="120" rx="14" fill="#15171D"/>
+      <rect x="414" y="0" width="120" height="120" rx="14" fill="#15171D"/>
+      <!-- Row 2 -->
+      <rect x="0"   y="138" width="120" height="120" rx="14" fill="#15171D"/>
+      <rect x="138" y="138" width="120" height="120" rx="14" fill="#15171D"/>
+      <rect x="276" y="138" width="120" height="120" rx="14" fill="#15171D"/>
+      <rect x="414" y="138" width="120" height="120" rx="14" fill="#15171D"/>
+      <!-- Faint placeholder icons -->
+      <g fill="#2A2F38">
+        <polygon points="48,42 48,78 76,60"/>
+        <circle cx="198" cy="60" r="16" fill="none" stroke="#2A2F38" stroke-width="3"/>
+        <rect x="326" y="48" width="24" height="24"/>
+        <rect x="466" y="48" width="6" height="24"/>
+        <rect x="478" y="48" width="6" height="24"/>
+        <polygon points="48,180 48,216 76,198"/>
+        <circle cx="198" cy="198" r="16" fill="none" stroke="#2A2F38" stroke-width="3"/>
+        <rect x="326" y="186" width="24" height="24"/>
+        <rect x="466" y="186" width="6" height="24"/>
+        <rect x="478" y="186" width="6" height="24"/>
+      </g>
+    </g>
+
+    <!-- Touch LCD strip (large enough to read) -->
+    <g transform="translate(264, 322)">
+      <rect x="0" y="0" width="534" height="110" rx="9" fill="#000000"/>
+      <!-- 4 sections separated -->
+      <line x1="133" y1="9"  x2="133" y2="101" stroke="#1F2329" stroke-width="1"/>
+      <line x1="267" y1="9"  x2="267" y2="101" stroke="#1F2329" stroke-width="1"/>
+      <line x1="401" y1="9"  x2="401" y2="101" stroke="#1F2329" stroke-width="1"/>
+
+      <!-- Section 3 with full plugin display, readable size -->
+      <clipPath id="sec3HeroB"><rect x="267" y="0" width="134" height="110" rx="0"/></clipPath>
+      <g clip-path="url(#sec3HeroB)">
+        <rect x="267" y="0" width="134" height="110" fill="url(#coverB)"/>
+        <rect x="267" y="0" width="134" height="110" fill="url(#dimB)"/>
+        <text x="334" y="34" text-anchor="middle"
+              font-family="-apple-system, sans-serif"
+              font-size="14" font-weight="700" fill="#FFFFFF">Hotel California</text>
+        <text x="334" y="54" text-anchor="middle"
+              font-family="-apple-system, sans-serif"
+              font-size="12" font-weight="500" fill="#E5E5E5">Eagles</text>
+        <text x="392" y="82" text-anchor="end"
+              font-family="-apple-system, sans-serif"
+              font-size="11" font-weight="600" fill="#FFFFFF">62%</text>
+        <rect x="273" y="92" width="122" height="6" rx="2" fill="#FFFFFF" opacity="0.2"/>
+        <rect x="273" y="92" width="76" height="6" rx="2" fill="url(#metalRedB)"/>
+      </g>
+      <!-- Glow around active section -->
+      <rect x="265" y="-2" width="138" height="114" rx="3" fill="none" stroke="url(#metalRedB)" stroke-width="2" opacity="0.65"/>
+    </g>
+
+    <!-- Dials -->
+    <g transform="translate(264, 460)">
+      <circle cx="60"  cy="0" r="34" fill="#0A0C0F" stroke="#2A2F38" stroke-width="3"/>
+      <circle cx="60"  cy="0" r="17" fill="#15171D"/>
+      <circle cx="194" cy="0" r="34" fill="#0A0C0F" stroke="#2A2F38" stroke-width="3"/>
+      <circle cx="194" cy="0" r="17" fill="#15171D"/>
+      <!-- Dial 3 active -->
+      <circle cx="328" cy="0" r="34" fill="#0A0C0F" stroke="url(#metalRedB)" stroke-width="5"/>
+      <circle cx="328" cy="0" r="17" fill="#15171D"/>
+      <circle cx="462" cy="0" r="34" fill="#0A0C0F" stroke="#2A2F38" stroke-width="3"/>
+      <circle cx="462" cy="0" r="17" fill="#15171D"/>
+    </g>
+
+    <!-- Subtle 'ELGATO' wordmark area -->
+    <rect x="50" y="466" width="60" height="8" rx="2" fill="#2A2F38"/>
+  </g>
+</svg>
