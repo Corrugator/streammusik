@@ -1,5 +1,7 @@
 # Stream Deck Musik Viewer
 
+![Stream Deck Musik Viewer](assets/marketplace-thumbnail.png)
+
 Apple-Music-Now-Playing für deinen **Stream Deck +** Encoder. Cover-Art als Vollbild auf dem Touch-Display, Titel + Artist scrollend, Drehregler für Lautstärke und Mute, Touch-Tap für Play/Pause.
 
 > **macOS · Apple Music.app · nur Stream Deck + (Encoder).**
@@ -14,6 +16,16 @@ Apple-Music-Now-Playing für deinen **Stream Deck +** Encoder. Cover-Art als Vol
 | Touch-Display | Tap | Play / Pause |
 
 Bei Fehlern (z. B. fehlender Automation-Permission) blendet das Encoder-Display das Stream-Deck-Alert-Icon ein.
+
+## Preview
+
+**Cover-Art + Track-Info auf dem Encoder-Display**
+
+![Encoder showing album cover, track name, artist and volume bar](assets/gallery-1-encoder.png)
+
+**Direkte Lautstärke-Kontrolle via Drehregler**
+
+![Encoder with prominent volume display and mint-red volume bar](assets/gallery-2-volume.png)
 
 ## Voraussetzungen
 
