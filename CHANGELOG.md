@@ -3,6 +3,15 @@
 Versionsschema: `{major}.{minor}.{patch}.{build}` (Stream Deck Manifest).
 Jeder Eintrag = ein gepacktes `.streamDeckPlugin`-Bundle.
 
+## 1.0.0.7 — 2026-05-26 — Production hardening
+
+Security/quality audit findings addressed before Marketplace submission:
+
+- **Manifest:** removed `Nodejs.Debug: "enabled"` — was a leftover from dev. Production runs without debug overhead now.
+- **Logger:** `streamDeck.logger.setLevel("trace")` → `"warn"`. Trace-level logged every poll, every dial-rotate, every marquee frame — massive disk I/O on user machines. Warn-level only fires on actual errors.
+
+No functional changes. Plugin behaves identically; just less noise on disk and no dev-flag in production.
+
 ## 1.0.0.6 — 2026-05-26 — Encoder-only scope
 
 - **Removed Keypad support.** The action is now declared `Controllers: ["Encoder"]` only — it shows up exclusively on Stream Deck + setups. Regular Stream Decks (without an encoder) won't see the action in the actions list.
