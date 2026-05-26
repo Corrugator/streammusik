@@ -11,29 +11,28 @@
     </linearGradient>
   </defs>
 
-  <!-- Background -->
   <rect width="1920" height="960" fill="url(#bg)"/>
 
-  <!-- Hexagon + Wave logo on the left -->
   <g transform="translate(230, 250)">
     <polygon points="240,0 432,110 432,330 240,440 48,330 48,110"
              fill="none" stroke="url(#metalRedThumb)" stroke-width="22" stroke-linejoin="round"/>
-    <path d="M 128 220 Q 188 110, 240 220 T 352 220"
-          fill="none" stroke="url(#metalRedThumb)" stroke-width="22"
-          stroke-linecap="round" stroke-linejoin="round"/>
+    <g fill="url(#metalRedThumb)">
+      <rect x="142" y="220" width="28" height="80"  rx="8"/>
+      <rect x="184" y="160" width="28" height="140" rx="8"/>
+      <rect x="226" y="190" width="28" height="110" rx="8"/>
+      <rect x="268" y="150" width="28" height="150" rx="8"/>
+      <rect x="310" y="205" width="28" height="95"  rx="8"/>
+    </g>
   </g>
 
-  <!-- Wordmark line 1 -->
   <text x="750" y="430"
         font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', sans-serif"
         font-size="120" font-weight="800" fill="#FFFFFF" letter-spacing="-2">Stream Deck</text>
 
-  <!-- Wordmark line 2 (metallic red) -->
   <text x="750" y="560"
         font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', sans-serif"
         font-size="120" font-weight="800" fill="url(#metalRedThumb)" letter-spacing="-2">Musik Viewer</text>
 
-  <!-- Subtitle -->
   <text x="753" y="625"
         font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', sans-serif"
         font-size="38" font-weight="400" fill="#9CA3AF">Now playing on macOS</text>

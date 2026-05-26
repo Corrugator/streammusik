@@ -3,6 +3,12 @@
 Versionsschema: `{major}.{minor}.{patch}.{build}` (Stream Deck Manifest).
 Jeder Eintrag = ein gepacktes `.streamDeckPlugin`-Bundle.
 
+## 1.0.0.4 — 2026-05-26 — Logo final (EQ bars)
+
+- **Inner symbol changed to equalizer bars** — the smooth sine wave looked too heartbeat-like. EQ bars are unambiguously "audio in motion".
+- Hexagon frame + metallic-red palette stay.
+- Same rollout across all icon sizes (marketplace 256/288/512, key 72/144, action + category) and the thumbnail.
+
 ## 1.0.0.3 — 2026-05-26 — Logo polish
 
 - **Inner symbol changed from EKG-style pulse line to a smooth sine wave** — the previous shape looked too stock-chart-like. The hexagon frame and metallic-red gradient stay.

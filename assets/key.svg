@@ -9,7 +9,10 @@
   <rect width="144" height="144" rx="20" fill="#101218"/>
   <polygon points="72,25 116,50 116,94 72,119 28,94 28,50"
            fill="none" stroke="url(#metalRedKey)" stroke-width="7" stroke-linejoin="round"/>
-  <path d="M 42 72 Q 57 49, 72 72 T 102 72"
-        fill="none" stroke="url(#metalRedKey)" stroke-width="7"
-        stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="url(#metalRedKey)">
+    <rect x="50" y="68" width="9" height="24" rx="2"/>
+    <rect x="63" y="52" width="9" height="40" rx="2"/>
+    <rect x="76" y="60" width="9" height="32" rx="2"/>
+    <rect x="89" y="48" width="9" height="44" rx="2"/>
+  </g>
 </svg>
