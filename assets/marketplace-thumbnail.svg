@@ -4,36 +4,134 @@
       <stop offset="0%" stop-color="#1A1D24"/>
       <stop offset="100%" stop-color="#06080B"/>
     </linearGradient>
-    <linearGradient id="metalRedThumb" x1="0" y1="0" x2="0" y2="1">
+    <linearGradient id="metalRed" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#FF4D52"/>
       <stop offset="45%" stop-color="#D62035"/>
       <stop offset="100%" stop-color="#7A0816"/>
     </linearGradient>
+    <linearGradient id="bodyGradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#22262E"/>
+      <stop offset="100%" stop-color="#0E1014"/>
+    </linearGradient>
+    <linearGradient id="cover" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FF7A45"/>
+      <stop offset="50%" stop-color="#C5183C"/>
+      <stop offset="100%" stop-color="#3B1140"/>
+    </linearGradient>
+    <linearGradient id="dim" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#000000" stop-opacity="0.85"/>
+      <stop offset="40%" stop-color="#000000" stop-opacity="0.30"/>
+      <stop offset="60%" stop-color="#000000" stop-opacity="0.30"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.85"/>
+    </linearGradient>
   </defs>
 
+  <!-- Background -->
   <rect width="1920" height="960" fill="url(#bg)"/>
 
-  <g transform="translate(230, 250)">
-    <polygon points="240,0 432,110 432,330 240,440 48,330 48,110"
-             fill="none" stroke="url(#metalRedThumb)" stroke-width="22" stroke-linejoin="round"/>
-    <g fill="url(#metalRedThumb)">
-      <rect x="142" y="220" width="28" height="80"  rx="8"/>
-      <rect x="184" y="160" width="28" height="140" rx="8"/>
-      <rect x="226" y="190" width="28" height="110" rx="8"/>
-      <rect x="268" y="150" width="28" height="150" rx="8"/>
-      <rect x="310" y="205" width="28" height="95"  rx="8"/>
+  <!-- ===== Top: Wordmark + Subtitle ===== -->
+  <text x="960" y="155" text-anchor="middle"
+        font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', sans-serif"
+        font-size="96" font-weight="800" fill="#FFFFFF" letter-spacing="-2">Stream Deck <tspan fill="url(#metalRed)">Musik Viewer</tspan></text>
+  <text x="960" y="215" text-anchor="middle"
+        font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', sans-serif"
+        font-size="32" font-weight="400" fill="#9CA3AF">Now playing on the Stream Deck + encoder</text>
+
+  <!-- ===== Left: Stream Deck + Hardware Mockup ===== -->
+  <g transform="translate(80, 340)">
+    <!-- Body -->
+    <rect x="0" y="0" width="700" height="420" rx="40" fill="url(#bodyGradient)" stroke="#2A2F38" stroke-width="2"/>
+
+    <!-- LCD Keys Grid 4x2 -->
+    <g transform="translate(178, 38)">
+      <!-- Row 1 -->
+      <rect x="0"   y="0" width="80" height="80" rx="10" fill="#15171D"/>
+      <rect x="92"  y="0" width="80" height="80" rx="10" fill="#15171D"/>
+      <rect x="184" y="0" width="80" height="80" rx="10" fill="#15171D"/>
+      <rect x="276" y="0" width="80" height="80" rx="10" fill="#15171D"/>
+      <!-- Row 2 -->
+      <rect x="0"   y="92" width="80" height="80" rx="10" fill="#15171D"/>
+      <rect x="92"  y="92" width="80" height="80" rx="10" fill="#15171D"/>
+      <rect x="184" y="92" width="80" height="80" rx="10" fill="#15171D"/>
+      <rect x="276" y="92" width="80" height="80" rx="10" fill="#15171D"/>
+      <!-- Faint placeholder icons -->
+      <g fill="#2A2F38">
+        <polygon points="32,28 32,52 50,40"/>
+        <circle cx="132" cy="40" r="11" fill="none" stroke="#2A2F38" stroke-width="2"/>
+        <rect x="218" y="32" width="16" height="16"/>
+        <rect x="310" y="32" width="4" height="16"/>
+        <rect x="320" y="32" width="4" height="16"/>
+        <polygon points="32,120 32,144 50,132"/>
+        <circle cx="132" cy="132" r="11" fill="none" stroke="#2A2F38" stroke-width="2"/>
+        <rect x="218" y="124" width="16" height="16"/>
+        <rect x="310" y="124" width="4" height="16"/>
+        <rect x="320" y="124" width="4" height="16"/>
+      </g>
     </g>
+
+    <!-- Touch LCD strip -->
+    <g transform="translate(178, 234)">
+      <rect x="0" y="0" width="356" height="74" rx="6" fill="#000000"/>
+      <line x1="89"  y1="6" x2="89"  y2="68" stroke="#1F2329" stroke-width="1"/>
+      <line x1="178" y1="6" x2="178" y2="68" stroke="#1F2329" stroke-width="1"/>
+      <line x1="267" y1="6" x2="267" y2="68" stroke="#1F2329" stroke-width="1"/>
+      <!-- Section 3 highlighted with plugin -->
+      <clipPath id="sec3MiniClip"><rect x="178" y="0" width="89" height="74"/></clipPath>
+      <g clip-path="url(#sec3MiniClip)">
+        <rect x="178" y="0" width="89" height="74" fill="url(#cover)"/>
+        <rect x="178" y="0" width="89" height="74" fill="url(#dim)"/>
+        <rect x="182" y="64" width="80" height="4" rx="2" fill="#FFFFFF" opacity="0.2"/>
+        <rect x="182" y="64" width="50" height="4" rx="2" fill="url(#metalRed)"/>
+      </g>
+      <!-- Subtle glow around active section to show 'this is the one' -->
+      <rect x="176" y="-2" width="93" height="78" rx="4" fill="none" stroke="url(#metalRed)" stroke-width="2" opacity="0.7"/>
+    </g>
+
+    <!-- Dials -->
+    <g transform="translate(178, 330)">
+      <circle cx="40" cy="30" r="28" fill="#0A0C0F" stroke="#2A2F38" stroke-width="3"/>
+      <circle cx="40" cy="30" r="14" fill="#15171D"/>
+      <circle cx="132" cy="30" r="28" fill="#0A0C0F" stroke="#2A2F38" stroke-width="3"/>
+      <circle cx="132" cy="30" r="14" fill="#15171D"/>
+      <!-- Dial 3 active -->
+      <circle cx="224" cy="30" r="28" fill="#0A0C0F" stroke="url(#metalRed)" stroke-width="4"/>
+      <circle cx="224" cy="30" r="14" fill="#15171D"/>
+      <circle cx="316" cy="30" r="28" fill="#0A0C0F" stroke="#2A2F38" stroke-width="3"/>
+      <circle cx="316" cy="30" r="14" fill="#15171D"/>
+    </g>
+
+    <rect x="32" y="376" width="48" height="6" rx="1" fill="#2A2F38"/>
   </g>
 
-  <text x="750" y="430"
-        font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', sans-serif"
-        font-size="120" font-weight="800" fill="#FFFFFF" letter-spacing="-2">Stream Deck</text>
+  <!-- ===== Connector: subtle arrow from encoder section to zoom ===== -->
+  <g stroke="url(#metalRed)" stroke-width="3" fill="none" opacity="0.7">
+    <path d="M 480 580 Q 600 580, 720 530" stroke-dasharray="6,6"/>
+    <polygon points="720,530 706,520 712,540" fill="url(#metalRed)" stroke="none"/>
+  </g>
 
-  <text x="750" y="560"
-        font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', sans-serif"
-        font-size="120" font-weight="800" fill="url(#metalRedThumb)" letter-spacing="-2">Musik Viewer</text>
-
-  <text x="753" y="625"
-        font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', sans-serif"
-        font-size="38" font-weight="400" fill="#9CA3AF">Now playing on macOS</text>
+  <!-- ===== Right: Zoomed Encoder Display ===== -->
+  <g transform="translate(840, 320)">
+    <!-- Display frame -->
+    <rect x="0" y="0" width="980" height="490" rx="32" fill="#000000" stroke="#2A2F38" stroke-width="3"/>
+    <g transform="translate(20, 20)">
+      <clipPath id="zoomClip"><rect x="0" y="0" width="940" height="450" rx="14"/></clipPath>
+      <g clip-path="url(#zoomClip)">
+        <rect x="0" y="0" width="940" height="450" fill="url(#cover)"/>
+        <circle cx="780" cy="100" r="130" fill="#FFFFFF" opacity="0.08"/>
+        <circle cx="160" cy="370" r="110" fill="#FFFFFF" opacity="0.06"/>
+        <rect x="0" y="0" width="940" height="450" fill="url(#dim)"/>
+        <text x="470" y="120" text-anchor="middle"
+              font-family="-apple-system, sans-serif"
+              font-size="72" font-weight="700" fill="#FFFFFF">Hotel California</text>
+        <text x="470" y="195" text-anchor="middle"
+              font-family="-apple-system, sans-serif"
+              font-size="52" font-weight="500" fill="#FFFFFF">Eagles</text>
+        <text x="920" y="350" text-anchor="end"
+              font-family="-apple-system, sans-serif"
+              font-size="44" font-weight="600" fill="#FFFFFF">62%</text>
+        <rect x="24" y="406" width="892" height="22" rx="6" fill="#FFFFFF" opacity="0.2"/>
+        <rect x="24" y="406" width="553" height="22" rx="6" fill="url(#metalRed)"/>
+      </g>
+    </g>
+  </g>
 </svg>
