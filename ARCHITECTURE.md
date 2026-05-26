@@ -39,17 +39,16 @@ Numerische Felder (`duration`, `position`, `volume`) werden über einen `isFinit
 
 ## Stream-Deck-Rendering
 
-`SingletonAction` mit beiden Controllern (`Keypad` + `Encoder`). Lifecycle:
+`SingletonAction` mit nur einem Controller (`Encoder`). Lifecycle:
 
 - **`onWillAppear`** — Snapshot zurücksetzen, sofort einen Tick rendern, 2-s-Intervall starten
 - **`onWillDisappear`** — alle Timer (Poll, Marquee, Volume-Flush) aufräumen
-- Jeder **Tick** holt Track-Info + System-Audio parallel und rendert pro Action-Instance (`#renderKey` / `#renderDial`)
+- Jeder **Tick** holt Track-Info + System-Audio parallel und rendert das Encoder-Feedback (`#renderDial`)
 
 ### Diff-Optimierungen
 
 - **Cover** (`icon`) wird nur neu eingelesen + gesendet, wenn sich die Persistent Track ID ändert — Cover ist der teure Teil (File-Read + Base64)
 - **Text- und Bar-Felder** (`track`, `artist`, `value`, `indicator`) werden bei jedem Tick gesendet — günstig und vermeidet Race-Conditions wo Werte aus dem Stream-Deck-Cache leer bleiben
-- Keypad-`setImage` / `setTitle` werden ebenfalls nur bei `pid`- oder `state`-Wechsel aufgerufen
 
 ### Marquee / Laufschrift bei langen Titeln
 

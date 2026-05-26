@@ -2,14 +2,12 @@ import streamDeck, {
 	action,
 	DialDownEvent,
 	DialRotateEvent,
-	KeyDownEvent,
 	SingletonAction,
 	TouchTapEvent,
 	WillAppearEvent,
 	WillDisappearEvent,
 	type DialAction,
 	type FeedbackPayload,
-	type KeyAction,
 } from "@elgato/streamdeck";
 import { readFile } from "node:fs/promises";
 
@@ -69,8 +67,8 @@ export class NowPlaying extends SingletonAction {
 	#marqueeTrack = "";
 	#marqueeArtist = "";
 
-	override async onWillAppear(ev: WillAppearEvent): Promise<void> {
-		streamDeck.logger.info(`onWillAppear controller=${ev.action.isDial() ? "dial" : "key"}`);
+	override async onWillAppear(_ev: WillAppearEvent): Promise<void> {
+		streamDeck.logger.info("onWillAppear (encoder)");
 		this.#snapshot = {};
 		await this.#tick();
 		this.#timer ??= setInterval(() => void this.#tick(), POLL_MS);
@@ -82,16 +80,6 @@ export class NowPlaying extends SingletonAction {
 		this.#stopMarquee();
 		this.#timer = undefined;
 		this.#flushTimer = undefined;
-	}
-
-	override async onKeyDown(ev: KeyDownEvent): Promise<void> {
-		try {
-			await playPause();
-			await this.#tick();
-		} catch (e) {
-			streamDeck.logger.warn(`playPause failed: ${e}`);
-			await ev.action.showAlert();
-		}
 	}
 
 	override async onTouchTap(ev: TouchTapEvent): Promise<void> {
@@ -187,7 +175,6 @@ export class NowPlaying extends SingletonAction {
 
 		for (const action of this.actions) {
 			if (action.isDial()) await this.#renderDial(action, track, effectiveAudio);
-			else if (action.isKey()) await this.#renderKey(action, track);
 		}
 		this.#snapshot = {
 			pid: track.pid,
@@ -195,21 +182,6 @@ export class NowPlaying extends SingletonAction {
 			volume: effectiveAudio.volume,
 			muted: effectiveAudio.muted,
 		};
-	}
-
-	async #renderKey(action: KeyAction, track: TrackInfo): Promise<void> {
-		const pidChanged = track.pid !== this.#snapshot.pid;
-		const stateChanged = track.state !== this.#snapshot.state;
-		if (!pidChanged && !stateChanged) return;
-
-		if (track.state === "playing" || track.state === "paused") {
-			const cover = await loadArtworkDataUrl(track.artworkPath);
-			await action.setImage(cover ?? undefined);
-			await action.setTitle(formatKeyTitle(track));
-		} else {
-			await action.setImage(undefined);
-			await action.setTitle(track.state === "not_running" ? "Apple Music" : "Stopped");
-		}
 	}
 
 	async #renderDial(action: DialAction, track: TrackInfo, audio: SystemAudioResult): Promise<void> {
@@ -285,12 +257,6 @@ async function safeGetAudio(): Promise<SystemAudioResult> {
 	} catch {
 		return { volume: 0, muted: false };
 	}
-}
-
-function formatKeyTitle(t: TrackInfo): string {
-	const name = truncate(t.name, 18);
-	const artist = truncate(t.artist, 18);
-	return [artist, name].filter(Boolean).join("\n");
 }
 
 function truncate(s: string | undefined, max: number): string {

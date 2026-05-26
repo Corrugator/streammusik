@@ -3,38 +3,26 @@
 Versionsschema: `{major}.{minor}.{patch}.{build}` (Stream Deck Manifest).
 Jeder Eintrag = ein gepacktes `.streamDeckPlugin`-Bundle.
 
+## 1.0.0.6 — 2026-05-26 — Encoder-only scope
+
+- **Removed Keypad support.** The action is now declared `Controllers: ["Encoder"]` only — it shows up exclusively on Stream Deck + setups. Regular Stream Decks (without an encoder) won't see the action in the actions list.
+- Source code cleanup: `onKeyDown` handler, `#renderKey` method, `formatKeyTitle` helper, and the `KeyAction` import all removed.
+- Manifest tooltip + description updated to reflect Encoder-only scope.
+
 ## 1.0.0.5 — 2026-05-26 — Gallery refresh
 
-- All three marketplace gallery images redrawn:
-  - **Gallery 1** ("See what's playing") — encoder mockup now shows the actual full-cover-background layout with a warm gradient cover and red volume bar.
-  - **Gallery 2** ("Instant volume") — encoder with cool blue cover, prominent 85% red volume display + nearly-full red bar.
-  - **Gallery 3** ("Album art, live on every key") — Stream Deck keypad with one key showing a purple/magenta cover.
-- All assets now consistent with the metallic-red brand palette (volume bar, accent text).
-- Cover mockups refreshed: from flat colored rectangles to subtle gradients with abstract decoration circles for an album-cover feel.
+- All three marketplace gallery images redrawn to match the current full-cover encoder layout and metallic-red branding.
+- Cover mockups now use subtle gradients with abstract decoration for an album-cover feel.
+- Encoder volume bar switched to metallic red for full brand consistency.
 
-## 1.0.0.4 — 2026-05-26 — Logo final (EQ bars)
+## 1.0.0.4 — 2026-05-26 — Logo + brand colors finalised
 
-- **Inner symbol changed to equalizer bars** — the smooth sine wave looked too heartbeat-like. EQ bars are unambiguously "audio in motion".
-- Hexagon frame + metallic-red palette stay.
-- Same rollout across all icon sizes (marketplace 256/288/512, key 72/144, action + category) and the thumbnail.
+Brand identity locked after several internal iterations:
 
-## 1.0.0.3 — 2026-05-26 — Logo polish
-
-- **Inner symbol changed from EKG-style pulse line to a smooth sine wave** — the previous shape looked too stock-chart-like. The hexagon frame and metallic-red gradient stay.
-- Same change rolled out across all icon sizes (marketplace 256/288/512, key 72/144, action + category) and the thumbnail.
-
-## 1.0.0.2 — 2026-05-26 — Brand refresh (metallic red, hexagon-pulse)
-
-- **New logo:** geometric hexagon outline with an EKG-style pulse line inside. More tech-modern, clearly "live audio" symbolism.
-- **New color palette:** metallic red gradient (`#FF4D52 → #D62035 → #7A0816`) replaces the mint-teal accent across all assets — icons, thumbnail wordmark, and the encoder volume bar.
-- Backgrounds stay dark charcoal for contrast.
-- No functional changes — assets + 1 color swap in the encoder layout.
-
-## 1.0.0.1 — 2026-05-26 — Logo refresh
-
-- **New logo:** stylised audio waveform (two mirrored sine curves) replaces the previous single-note design. More abstract, clearer audio-association, no resemblance to other music apps.
-- All icon sizes regenerated: Marketplace icon (256/288/512), key icon (72/144), action + category icons (mono white on transparent), thumbnail wordmark.
-- No functional changes; manifest + assets only.
+- **Logo:** geometric hexagon outline with equalizer bars inside (iterated through stylised notes, mirrored sine waves, and pulse lines before settling here).
+- **Brand color** switched from mint-teal to a metallic-red gradient (`#FF4D52 → #D62035 → #7A0816`) — cleaner break from Apple-Music styling.
+- Same artwork rolled out at every required size: marketplace icon (256/288/512), key icon (72/144), action + category icons (mono white on transparent), and the thumbnail wordmark.
+- No functional changes.
 
 ## 1.0.0.0 — 2026-05-24 — Marketplace Launch Brand
 

@@ -49,9 +49,13 @@ rsvg-convert -w 144 -h 144 assets/key.svg         -o com.corrugator.streamdeck-m
 
 ## Release-Workflow
 
+Zwei Ebenen — **lokal** (jede Änderung) vs. **GitHub Release** (zusammengefasst, nur auf Anforderung).
+
 > **Verbindliche Regeln:**
-> 1. Jede inhaltliche Änderung am Plugin wird **neu versioniert** und erzeugt eine neue `.streamDeckPlugin`-Datei.
-> 2. Jede Änderung wird in [`CHANGELOG.md`](CHANGELOG.md) dokumentiert.
+> 1. **Lokal:** Jede inhaltliche Änderung am Plugin wird **neu versioniert** und erzeugt eine neue `.streamDeckPlugin`-Datei. Damit kann jederzeit lokal getestet werden.
+> 2. **CHANGELOG:** Jede Änderung wird in [`CHANGELOG.md`](CHANGELOG.md) dokumentiert.
+> 3. **GitHub Release:** Wird **nicht für jede kleine Iteration** erzeugt. Kleinere Schritte (Logo-Iterationen, Wording-Tweaks, kosmetische Refinements) werden zusammengefasst, bis sie inhaltlich einen sinnvollen Schritt ergeben. **`gh release create` wird nur ausgeführt, wenn der Maintainer es explizit will.**
+> 4. **GitHub Push (Code):** Auch nicht für jede lokale Änderung. Push erfolgt bewusst, idealerweise zusammen mit dem Release. Dev-Snapshots bleiben lokal.
 
 ### Versionsschema
 
@@ -64,15 +68,22 @@ Stream Deck verlangt vier Komponenten: `{major}.{minor}.{patch}.{build}` (z. B. 
 | **patch** (`0.0.X.0`) | Bug-Fix, Text-Korrektur, Performance-Tweak |
 | **build** (`0.0.0.X`) | Reiner Re-Pack ohne Code-Change |
 
-### Schritte pro Release
+### Lokal pro Änderung (jede Iteration)
 
 1. **Code-Änderung**
 2. **README / ARCHITECTURE / DEVELOPMENT** aktualisieren — alle vom Change betroffenen Sektionen
 3. **`manifest.json`** → `Version` bumpen
 4. **`package.json`** → `version` synchron halten (drei Komponenten reichen für npm)
 5. **`CHANGELOG.md`** → kurzer Eintrag
-6. **`npm run pack`** → erzeugt frische `com.corrugator.streamdeck-musik-viewer.streamDeckPlugin`
-7. (optional) Git-Tag `v{version}`
+6. **`npm run pack`** → erzeugt frische `com.corrugator.streamdeck-musik-viewer.streamDeckPlugin` zum lokalen Test
+
+### GitHub-Release (zusammengefasst, auf Anforderung)
+
+1. **Mehrere lokale Iterationen** sammeln, bis sie zusammen einen sinnvollen Sprung ergeben.
+2. **Bestätigung vom Maintainer** holen, bevor ein Release angelegt wird.
+3. `./scripts/sync-to-github.sh` → `git commit -m "vX.Y.Z.B: zusammenfassender Title"` → `git push`
+4. `gh release create vX.Y.Z.B com.corrugator.streamdeck-musik-viewer.streamDeckPlugin --title "vX.Y.Z.B — kurzer Title" --notes "..."`
+5. CHANGELOG-Einträge der Zwischenschritte können bei Bedarf zu einem Release-Eintrag konsolidiert werden.
 
 ### Während Dev (gelinkt)
 
