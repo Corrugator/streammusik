@@ -5,7 +5,7 @@ import { promisify } from "node:util";
 
 const run = promisify(execFile);
 const ARTWORK_DIR = "/tmp";
-const ARTWORK_PREFIX = "streammusik-artwork-";
+const ARTWORK_PREFIX = "sdmv-artwork-";
 
 export type PlayerState = "playing" | "paused" | "stopped" | "not_running";
 
@@ -62,7 +62,7 @@ on run
 		end try
 		set artPath to ""
 		try
-			set artPath to "/tmp/streammusik-artwork-" & trackPid & ".png"
+			set artPath to "/tmp/sdmv-artwork-" & trackPid & ".png"
 			set hasFile to false
 			try
 				do shell script "test -s " & quoted form of artPath

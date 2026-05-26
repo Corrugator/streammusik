@@ -1,0 +1,60 @@
+{
+	"$schema": "https://schemas.elgato.com/streamdeck/plugins/layout.json",
+	"id": "now-playing",
+	"items": [
+		{
+			"key": "icon",
+			"type": "pixmap",
+			"rect": [0, 0, 200, 100],
+			"zOrder": 0
+		},
+		{
+			"key": "dim",
+			"type": "text",
+			"rect": [0, 0, 200, 100],
+			"value": "",
+			"background": "0:#000000F0,0.35:#00000060,0.65:#00000060,1:#000000F0",
+			"zOrder": 1
+		},
+		{
+			"key": "track",
+			"type": "text",
+			"rect": [6, 6, 188, 28],
+			"font": { "size": 17, "weight": 700 },
+			"alignment": "center",
+			"color": "#ffffff",
+			"text-overflow": "ellipsis",
+			"zOrder": 2
+		},
+		{
+			"key": "artist",
+			"type": "text",
+			"rect": [6, 36, 188, 24],
+			"font": { "size": 15, "weight": 500 },
+			"alignment": "center",
+			"color": "#ffffff",
+			"text-overflow": "ellipsis",
+			"zOrder": 3
+		},
+		{
+			"key": "value",
+			"type": "text",
+			"rect": [6, 78, 188, 14],
+			"font": { "size": 11, "weight": 600 },
+			"alignment": "right",
+			"color": "#FFFFFF",
+			"zOrder": 4
+		},
+		{
+			"key": "indicator",
+			"type": "bar",
+			"rect": [6, 93, 188, 5],
+			"value": 0,
+			"subtype": 4,
+			"border_w": 0,
+			"bar_bg_c": "#FFFFFF25",
+			"bar_fill_c": "#2DD4BF",
+			"zOrder": 5
+		}
+	]
+}

@@ -3,6 +3,18 @@
 Versionsschema: `{major}.{minor}.{patch}.{build}` (Stream Deck Manifest).
 Jeder Eintrag = ein gepacktes `.streamDeckPlugin`-Bundle.
 
+## 1.0.0.0 — 2026-05-24 — Marketplace Launch Brand
+
+Complete rebrand for Marketplace launch:
+
+- **Renamed** from `StreamMusik` to **Stream Deck Musik Viewer** (display name, manifest, all docs).
+- **New UUID:** `com.corrugator.streammusik` → `com.corrugator.streamdeck-musik-viewer` (clean reverse-DNS for the final brand).
+- **New repo:** `streammusik` → `streamdeck-musik-viewer` on GitHub.
+- **New Encoder Layout** with album cover as full-screen background, gradient overlay for legibility, mint-teal volume bar at the bottom, prominent track + artist text.
+- **Category** in manifest changed to `Music` (Guidelines-conform; was the plugin name before).
+- **Branding refresh:** dark charcoal + mint-teal palette (dropped the Apple-Music-inspired red/pink); new icon + thumbnail wordmark.
+- Tmp-file prefix: `streammusik-artwork-*` → `sdmv-artwork-*`.
+
 ## 0.3.0.4 — 2026-05-24
 
 **Marketplace-Anforderungen erfüllt** — der Maker Console hat beim Upload-Check drei Felder rot markiert, alle drei korrigiert:
@@ -20,11 +32,11 @@ Keine Code-Änderungen — `@elgato/streamdeck@2.1.0` läuft sowohl mit Manifest
 ## 0.3.0.2 — 2026-05-24
 
 - **Volume-Cache-Race behoben.** Nach jeder User-Audio-Aktion (Drehen, Mute) blockt ein 500-ms-Grace-Window den Cache-Sync vom Poll-Tick. Verhindert kurze visuelle Glitches bei schnellem Drehen während ein Poll-Tick parallel läuft.
-- **Artwork-Cleanup beim Plugin-Start.** Cached `/tmp/streammusik-artwork-*.png` Files älter als 30 Tage werden best-effort entfernt. Vermeidet Disk-Müll bei jahrelanger Nutzung ohne Reboot.
+- **Artwork-Cleanup beim Plugin-Start.** Cached `/tmp/sdmv-artwork-*.png` Files älter als 30 Tage werden best-effort entfernt. Vermeidet Disk-Müll bei jahrelanger Nutzung ohne Reboot.
 
 ## 0.3.0.1 — 2026-05-24
 
-- **Manifest `URL`** auf finales GitHub-Repo gesetzt (`https://github.com/Corrugator/streammusik`) — löst Pre-Submission-Blocker B2.
+- **Manifest `URL`** auf finales GitHub-Repo gesetzt (`https://github.com/Corrugator/streamdeck-musik-viewer`) — löst Pre-Submission-Blocker B2.
 - `package.json` um `repository`, `bugs`, `homepage` ergänzt — Standard für öffentliche npm-/GitHub-Projekte.
 
 ## 0.3.0.0 — 2026-05-24

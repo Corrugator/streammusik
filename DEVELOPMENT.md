@@ -1,24 +1,24 @@
 # Development
 
-Wie du StreamMusik lokal bauen, anpassen und neu releasen kannst.
+Wie du Stream Deck Musik Viewer lokal bauen, anpassen und neu releasen kannst.
 
 ## Voraussetzungen
 
 - macOS
 - Node.js 20 oder höher
-- Stream Deck Software 6.5+
+- Stream Deck Software 6.9+
 - [Elgato Stream Deck CLI](https://www.npmjs.com/package/@elgato/cli): `npm install -g @elgato/cli`
 - Für Icon-Regenerierung: `brew install librsvg`
 
 ## Setup
 
 ```bash
-git clone https://github.com/Corrugator/streammusik.git
-cd streammusik
+git clone https://github.com/Corrugator/streamdeck-musik-viewer.git
+cd streamdeck-musik-viewer
 npm install
 
 # Plugin als Symlink ins Stream Deck Plugins-Verzeichnis einhängen
-streamdeck link com.corrugator.streammusik.sdPlugin
+streamdeck link com.corrugator.streamdeck-musik-viewer.sdPlugin
 ```
 
 ## Build & Pack
@@ -33,7 +33,7 @@ npm run pack       # .streamDeckPlugin-Datei für Distribution erzeugen
 ## Logs
 
 ```
-~/Library/Application Support/com.elgato.StreamDeck/Plugins/com.corrugator.streammusik.sdPlugin/logs/
+~/Library/Application Support/com.elgato.StreamDeck/Plugins/com.corrugator.streamdeck-musik-viewer.sdPlugin/logs/
 ```
 
 ## Icons regenerieren
@@ -41,10 +41,10 @@ npm run pack       # .streamDeckPlugin-Datei für Distribution erzeugen
 Nach Edits in `assets/*.svg`:
 
 ```bash
-rsvg-convert -w 256 -h 256 assets/marketplace.svg -o com.corrugator.streammusik.sdPlugin/imgs/plugin/marketplace.png
-rsvg-convert -w 512 -h 512 assets/marketplace.svg -o com.corrugator.streammusik.sdPlugin/imgs/plugin/marketplace@2x.png
-rsvg-convert -w 72  -h 72  assets/key.svg         -o com.corrugator.streammusik.sdPlugin/imgs/actions/now-playing/key.png
-rsvg-convert -w 144 -h 144 assets/key.svg         -o com.corrugator.streammusik.sdPlugin/imgs/actions/now-playing/key@2x.png
+rsvg-convert -w 256 -h 256 assets/marketplace.svg -o com.corrugator.streamdeck-musik-viewer.sdPlugin/imgs/plugin/marketplace.png
+rsvg-convert -w 512 -h 512 assets/marketplace.svg -o com.corrugator.streamdeck-musik-viewer.sdPlugin/imgs/plugin/marketplace@2x.png
+rsvg-convert -w 72  -h 72  assets/key.svg         -o com.corrugator.streamdeck-musik-viewer.sdPlugin/imgs/actions/now-playing/key.png
+rsvg-convert -w 144 -h 144 assets/key.svg         -o com.corrugator.streamdeck-musik-viewer.sdPlugin/imgs/actions/now-playing/key@2x.png
 ```
 
 ## Release-Workflow
@@ -71,9 +71,9 @@ Stream Deck verlangt vier Komponenten: `{major}.{minor}.{patch}.{build}` (z. B. 
 3. **`manifest.json`** → `Version` bumpen
 4. **`package.json`** → `version` synchron halten (drei Komponenten reichen für npm)
 5. **`CHANGELOG.md`** → kurzer Eintrag
-6. **`npm run pack`** → erzeugt frische `com.corrugator.streammusik.streamDeckPlugin`
+6. **`npm run pack`** → erzeugt frische `com.corrugator.streamdeck-musik-viewer.streamDeckPlugin`
 7. (optional) Git-Tag `v{version}`
 
 ### Während Dev (gelinkt)
 
-Im Symlink-Modus reicht für Live-Tests `npm run watch` oder `streamdeck restart com.corrugator.streammusik` — **kein Version-Bump nötig**, solange nichts veröffentlicht wird.
+Im Symlink-Modus reicht für Live-Tests `npm run watch` oder `streamdeck restart com.corrugator.streamdeck-musik-viewer` — **kein Version-Bump nötig**, solange nichts veröffentlicht wird.

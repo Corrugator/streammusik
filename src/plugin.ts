@@ -4,7 +4,7 @@ import { NowPlaying } from "./actions/now-playing.js";
 import { cleanupOldArtwork } from "./lib/apple-music.js";
 
 streamDeck.logger.setLevel("trace");
-streamDeck.logger.info("StreamMusik plugin starting…");
+streamDeck.logger.info("Stream Deck Musik Viewer plugin starting…");
 
 // Best-effort cleanup of stale artwork files in /tmp from previous sessions.
 // Fire-and-forget — don't block startup.

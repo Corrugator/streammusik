@@ -1,11 +1,11 @@
 {
 	"$schema": "https://schemas.elgato.com/streamdeck/plugins/manifest.json",
-	"Name": "StreamMusik",
-	"Version": "0.3.0.4",
+	"Name": "Stream Deck Musik Viewer",
+	"Version": "1.0.0.0",
 	"Author": "corrugator",
-	"URL": "https://github.com/Corrugator/streammusik",
-	"Description": "Shows the currently playing Apple Music track on your Stream Deck key and controls volume with the Stream Deck+ dial.",
-	"Category": "StreamMusik",
+	"URL": "https://github.com/Corrugator/streamdeck-musik-viewer",
+	"Description": "Shows the currently playing Apple Music track on your Stream Deck. Cover art on the key, title and volume on the Stream Deck+ encoder.",
+	"Category": "Stream Deck Musik Viewer",
 	"CategoryIcon": "imgs/plugin/category-icon",
 	"Icon": "imgs/plugin/marketplace",
 	"CodePath": "bin/plugin.js",
@@ -23,11 +23,11 @@
 		"Version": "20",
 		"Debug": "enabled"
 	},
-	"UUID": "com.corrugator.streammusik",
+	"UUID": "com.corrugator.streamdeck-musik-viewer",
 	"Actions": [
 		{
 			"Name": "Now Playing",
-			"UUID": "com.corrugator.streammusik.now-playing",
+			"UUID": "com.corrugator.streamdeck-musik-viewer.now-playing",
 			"Icon": "imgs/actions/now-playing/action",
 			"Tooltip": "Show the current Apple Music track. Tap to play/pause. On Stream Deck+: turn dial to change volume, press to mute.",
 			"Controllers": [

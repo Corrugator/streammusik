@@ -50,7 +50,7 @@ type Snapshot = {
 
 type SystemAudioResult = { volume: number; muted: boolean };
 
-@action({ UUID: "com.corrugator.streammusik.now-playing" })
+@action({ UUID: "com.corrugator.streamdeck-musik-viewer.now-playing" })
 export class NowPlaying extends SingletonAction {
 	#timer?: NodeJS.Timeout;
 	#snapshot: Snapshot = {};

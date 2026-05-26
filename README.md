@@ -1,4 +1,4 @@
-# StreamMusik
+# Stream Deck Musik Viewer
 
 Apple-Music-Now-Playing für dein Stream Deck. Cover-Art auf der Taste, Track + Artist + Volume + Mute auf dem Stream Deck+ Encoder.
 
@@ -27,7 +27,7 @@ Bei Fehlern (z. B. fehlender Automation-Permission) blendet die Taste das Stream
 
 ## Installation
 
-1. Aktuelle [`com.corrugator.streammusik.streamDeckPlugin`](https://github.com/Corrugator/streammusik/releases) runterladen
+1. Aktuelle [`com.corrugator.streamdeck-musik-viewer.streamDeckPlugin`](https://github.com/Corrugator/streamdeck-musik-viewer/releases) runterladen
 2. Doppelklicken → Stream Deck installiert das Plugin
 3. Action **„Now Playing"** auf eine Taste oder einen Encoder ziehen
 4. Beim ersten Track-Wechsel die Automation-Permission bestätigen

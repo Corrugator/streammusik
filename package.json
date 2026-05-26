@@ -1,12 +1,12 @@
 {
-	"name": "streammusik",
-	"version": "0.3.3",
+	"name": "streamdeck-musik-viewer",
+	"version": "1.0.0",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/Corrugator/streammusik.git"
+		"url": "https://github.com/Corrugator/streamdeck-musik-viewer.git"
 	},
-	"bugs": "https://github.com/Corrugator/streammusik/issues",
-	"homepage": "https://github.com/Corrugator/streammusik#readme",
+	"bugs": "https://github.com/Corrugator/streamdeck-musik-viewer/issues",
+	"homepage": "https://github.com/Corrugator/streamdeck-musik-viewer#readme",
 	"description": "Stream Deck plugin that shows the currently playing Apple Music track and controls volume via the Stream Deck+ dial.",
 	"type": "module",
 	"private": true,
@@ -14,9 +14,9 @@
 	"author": "corrugator",
 	"scripts": {
 		"build": "rollup -c",
-		"watch": "rollup -c -w --watch.onEnd=\"streamdeck restart com.corrugator.streammusik\"",
-		"validate": "streamdeck validate com.corrugator.streammusik.sdPlugin",
-		"pack": "streamdeck pack com.corrugator.streammusik.sdPlugin --force",
+		"watch": "rollup -c -w --watch.onEnd=\"streamdeck restart com.corrugator.streamdeck-musik-viewer\"",
+		"validate": "streamdeck validate com.corrugator.streamdeck-musik-viewer.sdPlugin",
+		"pack": "streamdeck pack com.corrugator.streamdeck-musik-viewer.sdPlugin --force",
 		"sync": "./scripts/sync-to-github.sh"
 	},
 	"devDependencies": {
