@@ -3,6 +3,12 @@
 Versionsschema: `{major}.{minor}.{patch}.{build}` (Stream Deck Manifest).
 Jeder Eintrag = ein gepacktes `.streamDeckPlugin`-Bundle.
 
+## 1.0.0.1 — 2026-05-26 — Logo refresh
+
+- **New logo:** stylised audio waveform (two mirrored sine curves) replaces the previous single-note design. More abstract, clearer audio-association, no resemblance to other music apps.
+- All icon sizes regenerated: Marketplace icon (256/288/512), key icon (72/144), action + category icons (mono white on transparent), thumbnail wordmark.
+- No functional changes; manifest + assets only.
+
 ## 1.0.0.0 — 2026-05-24 — Marketplace Launch Brand
 
 Complete rebrand for Marketplace launch:

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bgA" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1F2329"/>
+      <stop offset="100%" stop-color="#0E1014"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="96" fill="url(#bgA)"/>
+  <!-- Equalizer bars, bottom-aligned at y=400, varying heights -->
+  <g fill="#2DD4BF">
+    <rect x="130" y="200" width="48" height="200" rx="14"/>
+    <rect x="198" y="120" width="48" height="280" rx="14"/>
+    <rect x="266" y="170" width="48" height="230" rx="14"/>
+    <rect x="334" y="240" width="48" height="160" rx="14"/>
+  </g>
+</svg>

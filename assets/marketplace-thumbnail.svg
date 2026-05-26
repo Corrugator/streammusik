@@ -9,11 +9,11 @@
   <!-- Background -->
   <rect width="1920" height="960" fill="url(#bg)"/>
 
-  <!-- Note icon on the left -->
-  <g fill="#2DD4BF" transform="translate(220, 230) scale(1.0)">
-    <rect x="276" y="124" width="32" height="248"/>
-    <circle cx="208" cy="372" r="76"/>
-    <polygon points="308,124 408,164 408,252 308,212"/>
+  <!-- Wave logo on the left -->
+  <g fill="none" stroke="#2DD4BF" stroke-width="38" stroke-linecap="round" stroke-linejoin="round"
+     transform="translate(230, 320)">
+    <path d="M 0 100 Q 90 -25, 180 100 T 360 100"/>
+    <path d="M 0 220 Q 90 345, 180 220 T 360 220"/>
   </g>
 
   <!-- Wordmark line 1 -->

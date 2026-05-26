@@ -1,8 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 144 144">
   <rect width="144" height="144" rx="20" fill="#101218"/>
-  <g fill="#2DD4BF">
-    <rect x="77" y="34" width="9" height="70"/>
-    <circle cx="58" cy="104" r="22"/>
-    <polygon points="86,34 114,45 114,70 86,59"/>
+  <g fill="none" stroke="#2DD4BF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 28 60 Q 49 31, 72 60 T 116 60"/>
+    <path d="M 28 84 Q 49 113, 72 84 T 116 84"/>
   </g>
 </svg>

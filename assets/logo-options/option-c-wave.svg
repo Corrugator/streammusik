@@ -1,11 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+    <linearGradient id="bgC" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#1F2329"/>
       <stop offset="100%" stop-color="#0E1014"/>
     </linearGradient>
   </defs>
-  <rect width="512" height="512" rx="96" fill="url(#bg)"/>
+  <rect width="512" height="512" rx="96" fill="url(#bgC)"/>
+  <!-- Audio waveform: mirrored sine pair -->
   <g fill="none" stroke="#2DD4BF" stroke-width="30" stroke-linecap="round" stroke-linejoin="round">
     <path d="M 100 215 Q 175 110, 256 215 T 412 215"/>
     <path d="M 100 297 Q 175 402, 256 297 T 412 297"/>

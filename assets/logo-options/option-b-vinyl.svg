@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bgB" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1F2329"/>
+      <stop offset="100%" stop-color="#0E1014"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="96" fill="url(#bgB)"/>
+  <!-- Vinyl disc -->
+  <g>
+    <!-- Outer ring (solid teal) -->
+    <circle cx="256" cy="256" r="180" fill="none" stroke="#2DD4BF" stroke-width="16"/>
+    <!-- Inner grooves (faint) -->
+    <circle cx="256" cy="256" r="148" fill="none" stroke="#2DD4BF" stroke-width="2" opacity="0.35"/>
+    <circle cx="256" cy="256" r="120" fill="none" stroke="#2DD4BF" stroke-width="2" opacity="0.35"/>
+    <circle cx="256" cy="256" r="95" fill="none" stroke="#2DD4BF" stroke-width="2" opacity="0.35"/>
+    <!-- Center label -->
+    <circle cx="256" cy="256" r="72" fill="#2DD4BF"/>
+    <!-- Center hole -->
+    <circle cx="256" cy="256" r="12" fill="#0E1014"/>
+  </g>
+</svg>
