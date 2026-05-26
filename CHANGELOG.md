@@ -3,6 +3,11 @@
 Versionsschema: `{major}.{minor}.{patch}.{build}` (Stream Deck Manifest).
 Jeder Eintrag = ein gepacktes `.streamDeckPlugin`-Bundle.
 
+## 1.0.0.3 — 2026-05-26 — Logo polish
+
+- **Inner symbol changed from EKG-style pulse line to a smooth sine wave** — the previous shape looked too stock-chart-like. The hexagon frame and metallic-red gradient stay.
+- Same change rolled out across all icon sizes (marketplace 256/288/512, key 72/144, action + category) and the thumbnail.
+
 ## 1.0.0.2 — 2026-05-26 — Brand refresh (metallic red, hexagon-pulse)
 
 - **New logo:** geometric hexagon outline with an EKG-style pulse line inside. More tech-modern, clearly "live audio" symbolism.

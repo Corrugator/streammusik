@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56">
   <polygon points="28,7 46,18 46,38 28,49 10,38 10,18"
            fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round"/>
-  <polyline points="15,28 22,28 25,21 28,35 31,19 34,35 37,28 41,28"
-            fill="none" stroke="#FFFFFF" stroke-width="2.5"
-            stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 17 28 Q 22.5 19, 28 28 T 39 28"
+        fill="none" stroke="#FFFFFF" stroke-width="3"
+        stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

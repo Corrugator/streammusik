@@ -1,19 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+    <linearGradient id="bgI" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#1A1D24"/>
       <stop offset="100%" stop-color="#08090C"/>
     </linearGradient>
-    <linearGradient id="metalRed" x1="0" y1="0" x2="0" y2="1">
+    <linearGradient id="metalRedI" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#FF4D52"/>
       <stop offset="45%" stop-color="#D62035"/>
       <stop offset="100%" stop-color="#7A0816"/>
     </linearGradient>
   </defs>
-  <rect width="512" height="512" rx="96" fill="url(#bg)"/>
+  <rect width="512" height="512" rx="96" fill="url(#bgI)"/>
   <polygon points="256,90 410,178 410,334 256,422 102,334 102,178"
-           fill="none" stroke="url(#metalRed)" stroke-width="22" stroke-linejoin="round"/>
-  <path d="M 150 256 Q 200 175, 256 256 T 362 256"
-        fill="none" stroke="url(#metalRed)" stroke-width="22"
-        stroke-linecap="round" stroke-linejoin="round"/>
+           fill="none" stroke="url(#metalRedI)" stroke-width="22" stroke-linejoin="round"/>
+  <!-- Play triangle, centered -->
+  <polygon points="210,180 210,332 340,256"
+           fill="url(#metalRedI)" stroke-linejoin="round"/>
 </svg>

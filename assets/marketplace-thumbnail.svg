@@ -14,13 +14,13 @@
   <!-- Background -->
   <rect width="1920" height="960" fill="url(#bg)"/>
 
-  <!-- Hexagon + Pulse logo on the left -->
+  <!-- Hexagon + Wave logo on the left -->
   <g transform="translate(230, 250)">
     <polygon points="240,0 432,110 432,330 240,440 48,330 48,110"
              fill="none" stroke="url(#metalRedThumb)" stroke-width="22" stroke-linejoin="round"/>
-    <polyline points="118,220 188,220 222,140 256,280 290,120 324,280 358,220 392,220"
-              fill="none" stroke="url(#metalRedThumb)" stroke-width="18"
-              stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 128 220 Q 188 110, 240 220 T 352 220"
+          fill="none" stroke="url(#metalRedThumb)" stroke-width="22"
+          stroke-linecap="round" stroke-linejoin="round"/>
   </g>
 
   <!-- Wordmark line 1 -->
