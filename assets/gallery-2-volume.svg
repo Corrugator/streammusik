@@ -1,55 +1,69 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 960">
   <defs>
     <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#1F2329"/>
-      <stop offset="100%" stop-color="#0A0C0F"/>
+      <stop offset="0%" stop-color="#1A1D24"/>
+      <stop offset="100%" stop-color="#06080B"/>
     </linearGradient>
-    <linearGradient id="bar2" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#2DD4BF"/>
-      <stop offset="100%" stop-color="#22B8A1"/>
+    <linearGradient id="metalRed2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FF4D52"/>
+      <stop offset="45%" stop-color="#D62035"/>
+      <stop offset="100%" stop-color="#7A0816"/>
+    </linearGradient>
+    <!-- Cool blue/teal cover -->
+    <linearGradient id="cover2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1E40AF"/>
+      <stop offset="50%" stop-color="#0E3F66"/>
+      <stop offset="100%" stop-color="#0A1538"/>
+    </linearGradient>
+    <linearGradient id="dim2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#000000" stop-opacity="0.95"/>
+      <stop offset="35%" stop-color="#000000" stop-opacity="0.40"/>
+      <stop offset="65%" stop-color="#000000" stop-opacity="0.40"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.95"/>
     </linearGradient>
   </defs>
 
   <rect width="1920" height="960" fill="url(#bg2)"/>
 
-  <!-- Left: Headline + description -->
-  <text x="140" y="380"
-        font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif"
+  <!-- Left: headline + description -->
+  <text x="140" y="370"
+        font-family="-apple-system, sans-serif"
         font-size="80" font-weight="800" fill="#FFFFFF" letter-spacing="-2">Instant</text>
-  <text x="140" y="475"
-        font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif"
-        font-size="80" font-weight="800" fill="#2DD4BF" letter-spacing="-2">volume.</text>
-  <text x="142" y="565"
-        font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif"
+  <text x="140" y="465"
+        font-family="-apple-system, sans-serif"
+        font-size="80" font-weight="800" fill="url(#metalRed2)" letter-spacing="-2">volume.</text>
+  <text x="142" y="555"
+        font-family="-apple-system, sans-serif"
         font-size="34" font-weight="400" fill="#9CA3AF">Turn the dial — the value updates</text>
-  <text x="142" y="612"
-        font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif"
+  <text x="142" y="600"
+        font-family="-apple-system, sans-serif"
         font-size="34" font-weight="400" fill="#9CA3AF">before macOS even processes it.</text>
 
-  <!-- Right: Encoder mockup with prominent volume bar -->
-  <g transform="translate(900, 260)">
-    <rect x="0" y="0" width="880" height="440" rx="32" fill="#000000" stroke="#2A2F38" stroke-width="3"/>
-    <rect x="20" y="20" width="840" height="400" rx="14" fill="#0E1014"/>
-
-    <!-- Track name -->
-    <text x="440" y="120" text-anchor="middle"
-          font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif"
-          font-size="56" font-weight="700" fill="#FFFFFF">Take Five</text>
-    <text x="440" y="180" text-anchor="middle"
-          font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif"
-          font-size="42" font-weight="400" fill="#B8B8B8">Dave Brubeck Quartet</text>
-
-    <!-- Cover -->
-    <rect x="60" y="220" width="170" height="170" rx="6" fill="#1E40AF"/>
-    <rect x="60" y="220" width="170" height="170" rx="6" fill="url(#bar2)" opacity="0.25"/>
-
-    <!-- Volume prominent (big %) -->
-    <text x="820" y="280" text-anchor="end"
-          font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif"
-          font-size="64" font-weight="700" fill="#2DD4BF">85%</text>
-
-    <!-- Volume bar (more filled) -->
-    <rect x="260" y="350" width="560" height="36" rx="6" fill="#2A2F38"/>
-    <rect x="260" y="350" width="476" height="36" rx="6" fill="url(#bar2)"/>
+  <!-- Right: encoder mockup with prominent volume -->
+  <g transform="translate(900, 240)">
+    <rect x="0" y="0" width="880" height="480" rx="36" fill="#000000" stroke="#2A2F38" stroke-width="3"/>
+    <g transform="translate(20, 20)">
+      <clipPath id="dispClip2"><rect x="0" y="0" width="840" height="420" rx="14"/></clipPath>
+      <g clip-path="url(#dispClip2)">
+        <rect x="0" y="0" width="840" height="420" fill="url(#cover2)"/>
+        <!-- Abstract decoration -->
+        <circle cx="200" cy="120" r="140" fill="#FFFFFF" opacity="0.08"/>
+        <circle cx="680" cy="320" r="110" fill="#FFFFFF" opacity="0.05"/>
+        <rect x="0" y="0" width="840" height="420" fill="url(#dim2)"/>
+        <text x="420" y="100" text-anchor="middle"
+              font-family="-apple-system, sans-serif"
+              font-size="64" font-weight="700" fill="#FFFFFF">Take Five</text>
+        <text x="420" y="170" text-anchor="middle"
+              font-family="-apple-system, sans-serif"
+              font-size="50" font-weight="500" fill="#FFFFFF">Dave Brubeck Quartet</text>
+        <!-- Volume value prominent -->
+        <text x="820" y="330" text-anchor="end"
+              font-family="-apple-system, sans-serif"
+              font-size="58" font-weight="800" fill="url(#metalRed2)">85%</text>
+        <!-- Volume bar (almost full, prominent) -->
+        <rect x="24" y="380" width="792" height="20" rx="6" fill="#FFFFFF" opacity="0.2"/>
+        <rect x="24" y="380" width="673" height="20" rx="6" fill="url(#metalRed2)"/>
+      </g>
+    </g>
   </g>
 </svg>

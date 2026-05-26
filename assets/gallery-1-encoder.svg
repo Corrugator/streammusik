@@ -1,58 +1,75 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 960">
   <defs>
     <linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#1F2329"/>
-      <stop offset="100%" stop-color="#0A0C0F"/>
+      <stop offset="0%" stop-color="#1A1D24"/>
+      <stop offset="100%" stop-color="#06080B"/>
     </linearGradient>
-    <linearGradient id="bar" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#2DD4BF"/>
-      <stop offset="100%" stop-color="#22B8A1"/>
+    <linearGradient id="metalRed1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FF4D52"/>
+      <stop offset="45%" stop-color="#D62035"/>
+      <stop offset="100%" stop-color="#7A0816"/>
+    </linearGradient>
+    <!-- Fictional album cover: warm gradient with abstract shapes -->
+    <linearGradient id="cover1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FF7A45"/>
+      <stop offset="50%" stop-color="#C5183C"/>
+      <stop offset="100%" stop-color="#3B1140"/>
+    </linearGradient>
+    <!-- Dim overlay (vertical gradient: dark top/bottom, lighter mid) -->
+    <linearGradient id="dim1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#000000" stop-opacity="0.95"/>
+      <stop offset="35%" stop-color="#000000" stop-opacity="0.40"/>
+      <stop offset="65%" stop-color="#000000" stop-opacity="0.40"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.95"/>
     </linearGradient>
   </defs>
 
   <rect width="1920" height="960" fill="url(#bg1)"/>
 
-  <!-- Left: Encoder display mockup (200x100 scaled 4.4x → 880x440, framed) -->
-  <g transform="translate(140, 260)">
-    <!-- Outer frame (Stream Deck+ look) -->
-    <rect x="0" y="0" width="880" height="440" rx="32" fill="#000000" stroke="#2A2F38" stroke-width="3"/>
-    <!-- Display area -->
-    <rect x="20" y="20" width="840" height="400" rx="14" fill="#0E1014"/>
-
-    <!-- Track name (big, bold, white) -->
-    <text x="440" y="120" text-anchor="middle"
-          font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif"
-          font-size="56" font-weight="700" fill="#FFFFFF">Hotel California</text>
-    <!-- Artist (smaller, grey) -->
-    <text x="440" y="180" text-anchor="middle"
-          font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif"
-          font-size="42" font-weight="400" fill="#B8B8B8">Eagles</text>
-
-    <!-- Cover art placeholder (left) -->
-    <rect x="60" y="220" width="170" height="170" rx="6" fill="#8B5A2B"/>
-    <rect x="60" y="220" width="170" height="170" rx="6" fill="url(#bar)" opacity="0.35"/>
-
-    <!-- Volume value (right) -->
-    <text x="820" y="280" text-anchor="end"
-          font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif"
-          font-size="48" font-weight="600" fill="#FFFFFF">62%</text>
-
-    <!-- Volume bar (bottom right area) -->
-    <rect x="260" y="350" width="560" height="36" rx="6" fill="#2A2F38"/>
-    <rect x="260" y="350" width="347" height="36" rx="6" fill="url(#bar)"/>
+  <!-- Encoder display mockup (full-cover background style) -->
+  <g transform="translate(140, 240)">
+    <!-- Outer device frame -->
+    <rect x="0" y="0" width="880" height="480" rx="36" fill="#000000" stroke="#2A2F38" stroke-width="3"/>
+    <!-- Display area (200x100 scaled 4.2x = 840x420) -->
+    <g transform="translate(20, 20)">
+      <clipPath id="dispClip1"><rect x="0" y="0" width="840" height="420" rx="14"/></clipPath>
+      <g clip-path="url(#dispClip1)">
+        <!-- Cover as full background -->
+        <rect x="0" y="0" width="840" height="420" fill="url(#cover1)"/>
+        <!-- Abstract decoration on cover -->
+        <circle cx="700" cy="100" r="120" fill="#FFFFFF" opacity="0.08"/>
+        <circle cx="150" cy="340" r="100" fill="#FFFFFF" opacity="0.06"/>
+        <!-- Dim overlay -->
+        <rect x="0" y="0" width="840" height="420" fill="url(#dim1)"/>
+        <!-- Text content -->
+        <text x="420" y="100" text-anchor="middle"
+              font-family="-apple-system, sans-serif"
+              font-size="64" font-weight="700" fill="#FFFFFF">Hotel California</text>
+        <text x="420" y="170" text-anchor="middle"
+              font-family="-apple-system, sans-serif"
+              font-size="50" font-weight="500" fill="#FFFFFF">Eagles</text>
+        <!-- Volume value -->
+        <text x="820" y="330" text-anchor="end"
+              font-family="-apple-system, sans-serif"
+              font-size="40" font-weight="600" fill="#FFFFFF">62%</text>
+        <!-- Volume bar -->
+        <rect x="24" y="380" width="792" height="20" rx="6" fill="#FFFFFF" opacity="0.2"/>
+        <rect x="24" y="380" width="491" height="20" rx="6" fill="url(#metalRed1)"/>
+      </g>
+    </g>
   </g>
 
-  <!-- Right side: headline + description -->
-  <text x="1100" y="380"
-        font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif"
+  <!-- Right: headline + description -->
+  <text x="1100" y="370"
+        font-family="-apple-system, sans-serif"
         font-size="80" font-weight="800" fill="#FFFFFF" letter-spacing="-2">See what's</text>
-  <text x="1100" y="475"
-        font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif"
-        font-size="80" font-weight="800" fill="#2DD4BF" letter-spacing="-2">playing.</text>
-  <text x="1102" y="565"
-        font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif"
-        font-size="34" font-weight="400" fill="#9CA3AF">Album cover, track title and artist —</text>
-  <text x="1102" y="612"
-        font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif"
-        font-size="34" font-weight="400" fill="#9CA3AF">right on your Stream Deck + encoder.</text>
+  <text x="1100" y="465"
+        font-family="-apple-system, sans-serif"
+        font-size="80" font-weight="800" fill="url(#metalRed1)" letter-spacing="-2">playing.</text>
+  <text x="1102" y="555"
+        font-family="-apple-system, sans-serif"
+        font-size="34" font-weight="400" fill="#9CA3AF">Album art fills the encoder display.</text>
+  <text x="1102" y="600"
+        font-family="-apple-system, sans-serif"
+        font-size="34" font-weight="400" fill="#9CA3AF">Track title + artist, scrolling if long.</text>
 </svg>

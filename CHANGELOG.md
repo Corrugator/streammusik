@@ -3,6 +3,15 @@
 Versionsschema: `{major}.{minor}.{patch}.{build}` (Stream Deck Manifest).
 Jeder Eintrag = ein gepacktes `.streamDeckPlugin`-Bundle.
 
+## 1.0.0.5 — 2026-05-26 — Gallery refresh
+
+- All three marketplace gallery images redrawn:
+  - **Gallery 1** ("See what's playing") — encoder mockup now shows the actual full-cover-background layout with a warm gradient cover and red volume bar.
+  - **Gallery 2** ("Instant volume") — encoder with cool blue cover, prominent 85% red volume display + nearly-full red bar.
+  - **Gallery 3** ("Album art, live on every key") — Stream Deck keypad with one key showing a purple/magenta cover.
+- All assets now consistent with the metallic-red brand palette (volume bar, accent text).
+- Cover mockups refreshed: from flat colored rectangles to subtle gradients with abstract decoration circles for an album-cover feel.
+
 ## 1.0.0.4 — 2026-05-26 — Logo final (EQ bars)
 
 - **Inner symbol changed to equalizer bars** — the smooth sine wave looked too heartbeat-like. EQ bars are unambiguously "audio in motion".
