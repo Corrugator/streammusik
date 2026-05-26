@@ -9,67 +9,117 @@
       <stop offset="45%" stop-color="#D62035"/>
       <stop offset="100%" stop-color="#7A0816"/>
     </linearGradient>
-    <!-- Fictional album cover: warm gradient with abstract shapes -->
+    <linearGradient id="bodyG1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#22262E"/>
+      <stop offset="100%" stop-color="#0E1014"/>
+    </linearGradient>
     <linearGradient id="cover1" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#FF7A45"/>
       <stop offset="50%" stop-color="#C5183C"/>
       <stop offset="100%" stop-color="#3B1140"/>
     </linearGradient>
-    <!-- Dim overlay (vertical gradient: dark top/bottom, lighter mid) -->
     <linearGradient id="dim1" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%"  stop-color="#000000" stop-opacity="0.95"/>
-      <stop offset="35%" stop-color="#000000" stop-opacity="0.40"/>
-      <stop offset="65%" stop-color="#000000" stop-opacity="0.40"/>
-      <stop offset="100%" stop-color="#000000" stop-opacity="0.95"/>
+      <stop offset="0%"  stop-color="#000000" stop-opacity="0.85"/>
+      <stop offset="40%" stop-color="#000000" stop-opacity="0.30"/>
+      <stop offset="60%" stop-color="#000000" stop-opacity="0.30"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.85"/>
     </linearGradient>
   </defs>
 
   <rect width="1920" height="960" fill="url(#bg1)"/>
 
-  <!-- Encoder display mockup (full-cover background style) -->
-  <g transform="translate(140, 240)">
-    <!-- Outer device frame -->
-    <rect x="0" y="0" width="880" height="480" rx="36" fill="#000000" stroke="#2A2F38" stroke-width="3"/>
-    <!-- Display area (200x100 scaled 4.2x = 840x420) -->
+  <!-- Top: Headline -->
+  <text x="960" y="140" text-anchor="middle"
+        font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif"
+        font-size="84" font-weight="800" fill="#FFFFFF" letter-spacing="-2">See what's <tspan fill="url(#metalRed1)">playing.</tspan></text>
+  <text x="960" y="200" text-anchor="middle"
+        font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif"
+        font-size="30" font-weight="400" fill="#9CA3AF">Album cover, track title and artist — right on the Stream Deck + encoder.</text>
+
+  <!-- Hardware Mockup -->
+  <g transform="translate(80, 320)">
+    <rect x="0" y="0" width="700" height="420" rx="40" fill="url(#bodyG1)" stroke="#2A2F38" stroke-width="2"/>
+
+    <g transform="translate(178, 38)">
+      <rect x="0"   y="0" width="80" height="80" rx="10" fill="#15171D"/>
+      <rect x="92"  y="0" width="80" height="80" rx="10" fill="#15171D"/>
+      <rect x="184" y="0" width="80" height="80" rx="10" fill="#15171D"/>
+      <rect x="276" y="0" width="80" height="80" rx="10" fill="#15171D"/>
+      <rect x="0"   y="92" width="80" height="80" rx="10" fill="#15171D"/>
+      <rect x="92"  y="92" width="80" height="80" rx="10" fill="#15171D"/>
+      <rect x="184" y="92" width="80" height="80" rx="10" fill="#15171D"/>
+      <rect x="276" y="92" width="80" height="80" rx="10" fill="#15171D"/>
+      <g fill="#2A2F38">
+        <polygon points="32,28 32,52 50,40"/>
+        <circle cx="132" cy="40" r="11" fill="none" stroke="#2A2F38" stroke-width="2"/>
+        <rect x="218" y="32" width="16" height="16"/>
+        <rect x="310" y="32" width="4" height="16"/>
+        <rect x="320" y="32" width="4" height="16"/>
+        <polygon points="32,120 32,144 50,132"/>
+        <circle cx="132" cy="132" r="11" fill="none" stroke="#2A2F38" stroke-width="2"/>
+        <rect x="218" y="124" width="16" height="16"/>
+        <rect x="310" y="124" width="4" height="16"/>
+        <rect x="320" y="124" width="4" height="16"/>
+      </g>
+    </g>
+
+    <g transform="translate(178, 234)">
+      <rect x="0" y="0" width="356" height="74" rx="6" fill="#000000"/>
+      <line x1="89"  y1="6" x2="89"  y2="68" stroke="#1F2329" stroke-width="1"/>
+      <line x1="178" y1="6" x2="178" y2="68" stroke="#1F2329" stroke-width="1"/>
+      <line x1="267" y1="6" x2="267" y2="68" stroke="#1F2329" stroke-width="1"/>
+      <clipPath id="sec3MiniG1"><rect x="178" y="0" width="89" height="74"/></clipPath>
+      <g clip-path="url(#sec3MiniG1)">
+        <rect x="178" y="0" width="89" height="74" fill="url(#cover1)"/>
+        <rect x="178" y="0" width="89" height="74" fill="url(#dim1)"/>
+        <rect x="182" y="64" width="80" height="4" rx="2" fill="#FFFFFF" opacity="0.2"/>
+        <rect x="182" y="64" width="50" height="4" rx="2" fill="url(#metalRed1)"/>
+      </g>
+      <rect x="176" y="-2" width="93" height="78" rx="4" fill="none" stroke="url(#metalRed1)" stroke-width="2" opacity="0.7"/>
+    </g>
+
+    <g transform="translate(178, 330)">
+      <circle cx="40" cy="30" r="28" fill="#0A0C0F" stroke="#2A2F38" stroke-width="3"/>
+      <circle cx="40" cy="30" r="14" fill="#15171D"/>
+      <circle cx="132" cy="30" r="28" fill="#0A0C0F" stroke="#2A2F38" stroke-width="3"/>
+      <circle cx="132" cy="30" r="14" fill="#15171D"/>
+      <circle cx="224" cy="30" r="28" fill="#0A0C0F" stroke="url(#metalRed1)" stroke-width="4"/>
+      <circle cx="224" cy="30" r="14" fill="#15171D"/>
+      <circle cx="316" cy="30" r="28" fill="#0A0C0F" stroke="#2A2F38" stroke-width="3"/>
+      <circle cx="316" cy="30" r="14" fill="#15171D"/>
+    </g>
+
+    <rect x="32" y="376" width="48" height="6" rx="1" fill="#2A2F38"/>
+  </g>
+
+  <!-- Connector arrow -->
+  <g stroke="url(#metalRed1)" stroke-width="3" fill="none" opacity="0.7">
+    <path d="M 480 560 Q 600 560, 720 510" stroke-dasharray="6,6"/>
+    <polygon points="720,510 706,500 712,520" fill="url(#metalRed1)" stroke="none"/>
+  </g>
+
+  <!-- Zoom Display -->
+  <g transform="translate(840, 300)">
+    <rect x="0" y="0" width="980" height="490" rx="32" fill="#000000" stroke="#2A2F38" stroke-width="3"/>
     <g transform="translate(20, 20)">
-      <clipPath id="dispClip1"><rect x="0" y="0" width="840" height="420" rx="14"/></clipPath>
-      <g clip-path="url(#dispClip1)">
-        <!-- Cover as full background -->
-        <rect x="0" y="0" width="840" height="420" fill="url(#cover1)"/>
-        <!-- Abstract decoration on cover -->
-        <circle cx="700" cy="100" r="120" fill="#FFFFFF" opacity="0.08"/>
-        <circle cx="150" cy="340" r="100" fill="#FFFFFF" opacity="0.06"/>
-        <!-- Dim overlay -->
-        <rect x="0" y="0" width="840" height="420" fill="url(#dim1)"/>
-        <!-- Text content -->
-        <text x="420" y="100" text-anchor="middle"
+      <clipPath id="zoomG1"><rect x="0" y="0" width="940" height="450" rx="14"/></clipPath>
+      <g clip-path="url(#zoomG1)">
+        <rect x="0" y="0" width="940" height="450" fill="url(#cover1)"/>
+        <circle cx="780" cy="100" r="130" fill="#FFFFFF" opacity="0.08"/>
+        <circle cx="160" cy="370" r="110" fill="#FFFFFF" opacity="0.06"/>
+        <rect x="0" y="0" width="940" height="450" fill="url(#dim1)"/>
+        <text x="470" y="120" text-anchor="middle"
               font-family="-apple-system, sans-serif"
-              font-size="64" font-weight="700" fill="#FFFFFF">Hotel California</text>
-        <text x="420" y="170" text-anchor="middle"
+              font-size="72" font-weight="700" fill="#FFFFFF">Hotel California</text>
+        <text x="470" y="195" text-anchor="middle"
               font-family="-apple-system, sans-serif"
-              font-size="50" font-weight="500" fill="#FFFFFF">Eagles</text>
-        <!-- Volume value -->
-        <text x="820" y="330" text-anchor="end"
+              font-size="52" font-weight="500" fill="#FFFFFF">Eagles</text>
+        <text x="920" y="350" text-anchor="end"
               font-family="-apple-system, sans-serif"
-              font-size="40" font-weight="600" fill="#FFFFFF">62%</text>
-        <!-- Volume bar -->
-        <rect x="24" y="380" width="792" height="20" rx="6" fill="#FFFFFF" opacity="0.2"/>
-        <rect x="24" y="380" width="491" height="20" rx="6" fill="url(#metalRed1)"/>
+              font-size="44" font-weight="600" fill="#FFFFFF">62%</text>
+        <rect x="24" y="406" width="892" height="22" rx="6" fill="#FFFFFF" opacity="0.2"/>
+        <rect x="24" y="406" width="553" height="22" rx="6" fill="url(#metalRed1)"/>
       </g>
     </g>
   </g>
-
-  <!-- Right: headline + description -->
-  <text x="1100" y="370"
-        font-family="-apple-system, sans-serif"
-        font-size="80" font-weight="800" fill="#FFFFFF" letter-spacing="-2">See what's</text>
-  <text x="1100" y="465"
-        font-family="-apple-system, sans-serif"
-        font-size="80" font-weight="800" fill="url(#metalRed1)" letter-spacing="-2">playing.</text>
-  <text x="1102" y="555"
-        font-family="-apple-system, sans-serif"
-        font-size="34" font-weight="400" fill="#9CA3AF">Album art fills the encoder display.</text>
-  <text x="1102" y="600"
-        font-family="-apple-system, sans-serif"
-        font-size="34" font-weight="400" fill="#9CA3AF">Track title + artist, scrolling if long.</text>
 </svg>
