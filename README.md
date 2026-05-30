@@ -10,8 +10,8 @@ Apple-Music-Now-Playing für deinen **Stream Deck +** Encoder. Cover-Art als Vol
 
 | Element | Geste | Wirkung |
 |---|---|---|
-| Encoder Touch-Display | — | Cover-Art als Vollbild-Hintergrund + Titel/Artist (scrollend bei langen Namen) + Volume-Bar |
-| Dial | Drehen | System-Lautstärke +/− |
+| Encoder Touch-Display | — | Cover als Vollbild + Titel/Artist (scrollend) + **Track-Fortschritt** (Zeit + Bar) |
+| Dial | Drehen | System-Lautstärke +/− (Display switcht für ~2,5 s auf Volume, dann zurück) |
 | Dial | Drücken | Mute toggeln |
 | Touch-Display | Tap | Play / Pause |
 

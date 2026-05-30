@@ -1,7 +1,7 @@
 {
 	"$schema": "https://schemas.elgato.com/streamdeck/plugins/manifest.json",
 	"Name": "Stream Deck Musik Viewer",
-	"Version": "1.0.0.7",
+	"Version": "1.0.0.8",
 	"Author": "corrugator",
 	"URL": "https://github.com/Corrugator/streamdeck-musik-viewer",
 	"Description": "Shows the currently playing Apple Music track on the Stream Deck+ encoder display, with cover art as background and dial control for volume / mute / play-pause.",

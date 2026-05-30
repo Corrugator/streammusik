@@ -119,7 +119,11 @@ function parseKv(out: string): Record<string, string> {
 
 function toFiniteNumber(s: string | undefined): number | undefined {
 	if (!s) return undefined;
-	const n = Number(s);
+	// AppleScript formats decimals using the system locale — on a German Mac that
+	// means "242,044" instead of "242.044". Normalise comma → dot before parsing
+	// so Number() doesn't bail out to NaN.
+	const normalized = s.replace(",", ".");
+	const n = Number(normalized);
 	return Number.isFinite(n) ? n : undefined;
 }
 

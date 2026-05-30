@@ -29,6 +29,11 @@ const FLUSH_DEBOUNCE_MS = 30;
  * NOT overwrite the cache. Covers debounce + osascript round-trip + safety buffer.
  */
 const USER_ACTION_GRACE_MS = 500;
+/**
+ * How long to keep showing the volume after the last dial interaction before
+ * switching the display back to track-progress. macOS volume-HUD-style timing.
+ */
+const VOLUME_DISPLAY_MS = 2500;
 
 /**
  * Char limits the layout's text slots can display at the current font sizes.
@@ -67,6 +72,11 @@ export class NowPlaying extends SingletonAction {
 	#marqueeTrack = "";
 	#marqueeArtist = "";
 
+	// Display mode — value + indicator show track progress by default,
+	// flip to volume for VOLUME_DISPLAY_MS after each dial interaction.
+	#displayMode: "progress" | "volume" = "progress";
+	#modeRevertTimer?: NodeJS.Timeout;
+
 	override async onWillAppear(_ev: WillAppearEvent): Promise<void> {
 		streamDeck.logger.info("onWillAppear (encoder)");
 		this.#snapshot = {};
@@ -77,9 +87,11 @@ export class NowPlaying extends SingletonAction {
 	override onWillDisappear(_ev: WillDisappearEvent): void {
 		if (this.#timer) clearInterval(this.#timer);
 		if (this.#flushTimer) clearTimeout(this.#flushTimer);
+		if (this.#modeRevertTimer) clearTimeout(this.#modeRevertTimer);
 		this.#stopMarquee();
 		this.#timer = undefined;
 		this.#flushTimer = undefined;
+		this.#modeRevertTimer = undefined;
 	}
 
 	override async onTouchTap(ev: TouchTapEvent): Promise<void> {
@@ -94,6 +106,7 @@ export class NowPlaying extends SingletonAction {
 
 	override async onDialDown(ev: DialDownEvent): Promise<void> {
 		this.#lastUserActionAt = Date.now();
+		this.#enterVolumeMode();
 		const next = !(this.#cachedMuted ?? false);
 		this.#cachedMuted = next;
 		// UI immediately, OS in background.
@@ -111,6 +124,7 @@ export class NowPlaying extends SingletonAction {
 
 	override async onDialRotate(ev: DialRotateEvent): Promise<void> {
 		this.#lastUserActionAt = Date.now();
+		this.#enterVolumeMode();
 		const current = this.#cachedVolume ?? 0;
 		const wasMuted = this.#cachedMuted ?? false;
 		const next = Math.max(0, Math.min(100, current + ev.payload.ticks * VOLUME_STEP));
@@ -153,6 +167,17 @@ export class NowPlaying extends SingletonAction {
 		for (const action of this.actions) {
 			if (action.isDial()) await action.setFeedback(feedback);
 		}
+	}
+
+	#enterVolumeMode(): void {
+		this.#displayMode = "volume";
+		if (this.#modeRevertTimer) clearTimeout(this.#modeRevertTimer);
+		this.#modeRevertTimer = setTimeout(() => {
+			this.#displayMode = "progress";
+			this.#modeRevertTimer = undefined;
+			// Immediately repaint with progress so the user sees the switch back.
+			void this.#tick();
+		}, VOLUME_DISPLAY_MS);
 	}
 
 	async #tick(): Promise<void> {
@@ -205,12 +230,20 @@ export class NowPlaying extends SingletonAction {
 			else this.#stopMarquee();
 		}
 
+		// value + indicator show track progress by default; switch to volume right after a dial interaction.
+		const valueText = this.#displayMode === "volume"
+			? (audio.muted ? "Muted" : `${audio.volume}%`)
+			: formatProgress(track.position, track.duration);
+		const indicatorValue = this.#displayMode === "volume"
+			? (audio.muted ? 0 : audio.volume)
+			: progressPercent(track.position, track.duration);
+
 		// Custom layout keys: track, artist, icon, value, indicator.
 		const feedback: FeedbackPayload = {
 			track: marqueeSlice(trackFull, TRACK_MAX, this.#marqueeOffset),
 			artist: marqueeSlice(artistFull, ARTIST_MAX, this.#marqueeOffset),
-			value: audio.muted ? "Muted" : `${audio.volume}%`,
-			indicator: { value: audio.muted ? 0 : audio.volume },
+			value: valueText,
+			indicator: { value: indicatorValue },
 		} as FeedbackPayload;
 
 		// Cover read is expensive — only on track change.
@@ -262,6 +295,26 @@ async function safeGetAudio(): Promise<SystemAudioResult> {
 function truncate(s: string | undefined, max: number): string {
 	if (!s) return "";
 	return s.length > max ? s.slice(0, max - 1) + "…" : s;
+}
+
+function formatTime(seconds: number): string {
+	const s = Math.max(0, Math.floor(seconds));
+	const m = Math.floor(s / 60);
+	const r = s % 60;
+	return `${m}:${String(r).padStart(2, "0")}`;
+}
+
+function formatProgress(position?: number, duration?: number): string {
+	if (!Number.isFinite(position)) return "";
+	if (Number.isFinite(duration) && (duration as number) > 0) {
+		return `${formatTime(position as number)} / ${formatTime(duration as number)}`;
+	}
+	return formatTime(position as number);
+}
+
+function progressPercent(position?: number, duration?: number): number {
+	if (!Number.isFinite(position) || !Number.isFinite(duration) || (duration as number) <= 0) return 0;
+	return Math.max(0, Math.min(100, ((position as number) / (duration as number)) * 100));
 }
 
 /**

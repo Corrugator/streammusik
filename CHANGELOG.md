@@ -3,6 +3,13 @@
 Versionsschema: `{major}.{minor}.{patch}.{build}` (Stream Deck Manifest).
 Jeder Eintrag = ein gepacktes `.streamDeckPlugin`-Bundle.
 
+## 1.0.0.8 — 2026-05-30 — Track progress display
+
+- **Encoder bottom area now defaults to track progress** instead of permanent volume display. Shows current time + total like `1:33 / 3:15`, with the bar wandering as the track plays.
+- **Volume slides in on demand:** turn the dial → display switches to `62%` + volume bar for 2.5 seconds, then automatically reverts to track progress. Pressing the dial (mute toggle) triggers the same temporary switch.
+- **Locale-aware number parsing:** AppleScript on a German Mac returns decimals with a comma (`242,044`). The track-info parser now normalises comma to dot before `Number()` so duration and position are read correctly.
+- README + ARCHITECTURE updated to mention the new display behaviour.
+
 ## 1.0.0.7 — 2026-05-26 — Production hardening
 
 Security/quality audit findings addressed before Marketplace submission:
